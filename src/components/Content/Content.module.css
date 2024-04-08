@@ -1,0 +1,7 @@
+.mainContainer {
+    width: 100%;
+    margin-top: 52px;
+    min-height: 90vh;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+  }
