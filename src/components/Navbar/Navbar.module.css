@@ -3,13 +3,16 @@
 .navbar{
     background-color: #212121;
     color: var(--primary-color);
+    border: solid #383838;
 }
 
-
+hr{
+  color: var(--primary-color);
+}
 .navbar-logo{
     margin-top: 20px;
     height: 50px;
-    width: 300px;
+    width: 400px;
 }
 .linkContainer {
     align-items: center;
@@ -18,7 +21,7 @@
   
   .navbar-menu {
     list-style-type: none;
-    padding: 20px 30px;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
   }
