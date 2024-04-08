@@ -10,7 +10,7 @@ function Navbar() {
       <div className={styles["navbar-container"]}>
         <div className={styles["navbar-brand"]}>
           <img src="logo.png" alt="FilmRausch Logo" className={styles["navbar-logo"]}/>
-          <span className={styles["navbar-title"]}>FilmRausch</span>
+          {/* <span className={styles["navbar-title"]}>FilmRausch</span> */}
         </div>
         <div className={styles.linkContainer}>
           <ul className={styles["navbar-menu"]}>
