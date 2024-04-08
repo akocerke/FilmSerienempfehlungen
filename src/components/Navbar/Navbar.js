@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Navbar.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faFilm, faTv, faSearch, faNewspaper } from '@fortawesome/free-solid-svg-icons';
+import {faStar} from '@fortawesome/free-regular-svg-icons';
 
 
 function Navbar() {
@@ -39,6 +40,13 @@ function Navbar() {
               <FontAwesomeIcon icon={faSearch} /> Suche
               </a>
             </li>
+            <li className={styles["navbar-item"]}>
+              <a href="#" className={styles["navbar-link"]}>
+              <FontAwesomeIcon icon={faStar} />
+              </a>
+            </li>
+
+            
           </ul>
         </div>
       </div>
