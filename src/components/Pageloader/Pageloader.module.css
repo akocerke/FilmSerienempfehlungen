@@ -1,0 +1,17 @@
+/* Pageloader.module.css */
+
+.pageloader {
+   width: 100vw;
+   height: 100vh; 
+   object-fit: cover;
+   position: relative;
+}
+
+.pageloader video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
