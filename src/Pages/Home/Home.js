@@ -1,11 +1,12 @@
 import React from "react";
+import "./Home.module.css";
 
-const Home = () => {
-    return (
-      <div>
-      </div>
-    );
-  }
-  
-  export default Home;
-  
+function Home() {
+  return (
+    <div>
+      <h1>Willkomen </h1>
+    </div>
+  );
+}
+
+export default Home;
