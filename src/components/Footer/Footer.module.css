@@ -11,7 +11,7 @@ nav ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   list-style-type: none;
-  padding: 0;
+  padding: 0;2
 }
 
 nav ul li {

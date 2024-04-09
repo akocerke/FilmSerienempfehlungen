@@ -16,21 +16,6 @@ function Footer() {
           <li>
             <a href="#"> Serien </a>
           </li>
-          <li>
-            <a href="#"> Serien </a>
-          </li>
-          <li>
-            <a href="#"> Serien </a>
-          </li>
-          <li>
-            <a href="#"> Serien </a>
-          </li>
-          <li>
-            <a href="#"> Serien </a>
-          </li>
-          <li>
-            <a href="#"> Serien </a>
-          </li>
         </ul>
       </nav>
     </footer>
