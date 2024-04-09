@@ -1,0 +1,26 @@
+.navbar {
+  background-color: #212121;
+  color: var(--primary-color);
+  border: solid #383838;
+  align-items: center;
+  list-style-type: none;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.button {
+  background-color: #252525; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.navbarlink {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
