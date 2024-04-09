@@ -1,10 +1,13 @@
 import React from "react";
-import "./Home.module.css";
+import styles from "./Home.module.css";
 
 function Home() {
   return (
-    <div>
-      <h1>Willkomen </h1>
+    <div className={styles["fondo"]}>
+      <h1>Willkommen</h1>
+      <h2>
+        Millionen von Filmen, Serien und Menschen zu entdecken. Jetzt erkunden.
+      </h2>
     </div>
   );
 }
