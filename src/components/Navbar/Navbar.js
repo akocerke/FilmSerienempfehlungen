@@ -9,11 +9,6 @@ function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles["navbar-container"]}>
-        <div className={styles["navbar-brand"]}>
-          <img src="logo.png" alt="FilmRausch Logo" className={styles["navbar-logo"]}/>
-          {/* <span className={styles["navbar-title"]}>FilmRausch</span> */}
-        </div>
-        <hr />
         <div className={styles.linkContainer}>
           <ul className={styles["navbar-menu"]}>
             <li className={styles["navbar-item"]}>

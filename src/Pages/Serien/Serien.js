@@ -1,11 +1,11 @@
 import React from "react";
 
-const Impressum = () => {
+const Serien = () => {
     return (
       <div>
       </div>
     );
   }
   
-  export default Impressum;
+  export default Serien;
   

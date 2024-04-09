@@ -1,11 +1,11 @@
 import React from "react";
 
-const Impressum = () => {
+const Filme = () => {
     return (
       <div>
       </div>
     );
   }
   
-  export default Impressum;
+  export default Filme;
   
