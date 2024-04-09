@@ -1,11 +1,11 @@
 import React from "react";
 
-const Startseite = () => {
+const Filmseite = () => {
     return (
       <div>
       </div>
     );
   }
   
-  export default Startseite;
+  export default Filmseite;
   

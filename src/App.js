@@ -1,18 +1,34 @@
 import './style/App.css';
 import './style/GlobalVars.css';
-// import Pageloader from './components/Pageloader/Pageloader';
-import Navbar from './components/Navbar/Navbar';
-import Footer from "./components/Footer/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Startseite from "./Pages/Startseite/Startseite";
+import Filme from "./Pages/Filme/Filme";
+import Serien from "./Pages/Serien/Serien";
+import Suche from "./Pages/Suche/Suche";
+import Filmseite from "./Pages/Filmseite/Filmseite";
+import Favoriten from "./Pages/Favoriten/Favoriten";
+import Error from "./Pages/Error/Error";
+import Impressum from "./Pages/Impressum/Impressum";
 
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      {/* <Pageloader /> */}
-      <Navbar />
-      <Footer />
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Startseite />} exact />
+          <Route path="/filme" element={<Filme />} />
+          <Route path="/serien" element={<Serien />} />
+          <Route path="/suche" element={<Suche />} />
+          <Route path="*" element={<Error />} />
+          <Route path="/impressum" element={<Impressum />} />
+          <Route path="/favoriten" element={<Favoriten />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
-}
+};
+ 
 
 export default App;
