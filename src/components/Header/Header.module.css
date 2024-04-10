@@ -5,12 +5,27 @@
     margin-right: auto;
     padding-bottom: 2%;
     padding-top: 2%;
-    width: 60%;
+    text-align: center;
 }
+
+.logoSize {
+    width: 60%;
+    animation: glow 0.9s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      filter: brightness(110%);
+    }
+    to {
+      filter: brightness(150%);
+    }
+  }
 
 .container-fluid{
     display: block;
     width: 100%;
-    background-color: #212121;
+    background-color: var(--footer-color);
     color: var(--primary-color);
+    text-align: center;
 }

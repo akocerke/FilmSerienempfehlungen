@@ -1,5 +1,7 @@
 .navbar {
-  background-color: #212121;
+  background-color: var(--footer-color);
+  display: flex;
+  justify-content: space-between;
   color: var(--primary-color);
   border: solid #383838;
   align-items: center;
@@ -9,18 +11,68 @@
 }
 
 .button {
-  background-color: #252525; 
+  background-color: var(--footer-color);
   border: none;
-  color: white;
   padding: 15px 32px;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  font-size: 1em;
+  display: flex;
 }
 
-.navbarlink {
+.iconText {
+  margin-left: 0.5rem;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.linkTo {
   text-decoration: none;
   color: var(--primary-color);
   transition: color 0.3s ease;
 }
+
+.iconText:hover {
+  color: var(--secondary-color);
+  text-shadow: var(--secondary-color) 1px 0 5px;
+  cursor: pointer;
+}
+
+.customIcon {
+  color: var(--primary-color);
+}
+
+
+
+@media screen and (max-width: 868px) {
+  .navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    justify-items: center; 
+    align-items: center; 
+  }
+
+  .button {
+    grid-column: span 1; 
+    margin: 0; 
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navbar {
+    display: flex;
+    flex-wrap: wrap; /* Umbruch bei Bedarf */
+    justify-content: center; /* Zentrieren der Elemente horizontal */
+    align-items: center; /* Zentrieren der Elemente vertikal */
+  }
+
+  .button {
+    flex: 1 1 100%; /* Jeder Button nimmt die volle Breite in einer Zeile ein */
+    max-width: calc(33% - 20px); /* Maximale Breite für jeden Button */
+    margin: 10px; /* Abstand zwischen den Buttons */
+  }
+}
+
+
+
+
+

@@ -1,0 +1,13 @@
+.popcorncss {
+  background-image: url("../../assets/ing/home.png");
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+}
+.popkorn {
+  text-shadow: #fc0 3px 0 10px;
+}
+
+.popkorn1 {
+  text-shadow: rgb(34, 34, 32) 3px 0 10px;
+}
