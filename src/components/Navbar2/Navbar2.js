@@ -1,60 +1,61 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faFilm,
+  faTv,
+  faSearch,
+  faNewspaper,
+} from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-regular-svg-icons";
 import styles from "./Navbar2.module.css";
-import {faStar} from '@fortawesome/free-regular-svg-icons';
-
 
 const Navbar2 = () => {
   const data = [
     {
-      icon: faStar,
+      icon: faHome,
       name: "Startseite",
       link: "/",
     },
     {
-      icon: {faStar},
+      icon: faNewspaper,
       name: "Neuheiten",
       link: "/neuheiten",
     },
     {
-      icon: "fas fa-film",
+      icon: faFilm,
       name: "Filme",
       link: "/filme",
     },
     {
-      icon: "fas fa-tv",
+      icon: faTv,
       name: "Serien",
       link: "/serien",
     },
     {
-      icon: "fas fa-search",
+      icon: faSearch,
       name: "Suche",
       link: "/suche",
     },
     {
-      icon: "fas fa-star",
+      icon: faStar,
       name: "Favoriten",
       link: "/favoriten",
     },
   ];
- return (
-    <>
-      <div className={styles.navbar}>
-            {data.map((Val) => {
-              return (
-                <>
-                  <NavLink to={`${Val.link}`}>
-                    <button className={styles.button}>
-                      <i className={`${Val.icon}`}></i>
-                      <br />
-                      <h5 className={styles.navbarlink}>{Val.name}</h5>
-                    </button>
-                  </NavLink>
-                </>
-              );
-            })}
-          </div>
-    </>
+
+  return (
+    <div className={styles.navbar}>
+      {data.map((Val, index) => (
+        <Link key={index} to={Val.link}>
+          <button className={styles.button}>
+            <FontAwesomeIcon icon={Val.icon} className={styles.customIcon} />
+            <p className={styles.navbarlink}>{Val.name}</p>
+          </button>
+        </Link>
+      ))}
+    </div>
   );
 };
 

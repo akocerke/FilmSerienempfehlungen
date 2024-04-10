@@ -5,8 +5,8 @@ const Header = () =>  {
     return (
         <>
         <div className={styles["container-fluid"]}>
-            <div class={styles["logo"]}>
-                    <img src="logo.png" alt="FilmRausch Logo" class={styles["logoSize"]}/>
+            <div className={styles["logo"]}>
+                    <img src="logo.png" alt="FilmRausch Logo" className={styles["logoSize"]}/>
             </div>
         </div>
         </>

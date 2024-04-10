@@ -28,4 +28,9 @@
 
 .navbarlink:hover {
   color: var(--secondary-color);
+  text-shadow: var(--secondary-color) 0.5px 0 10px;
+}
+
+.customIcon{
+  color: var(--primary-color);
 }
