@@ -32,7 +32,6 @@ const App = () => {
           <>
             <Header />
             <Navbar2 />
-            <Footer />
             <Routes>
               <Route path="/" element={<Startseite />} exact />
               <Route path="/filme" element={<Filme />} />
@@ -43,6 +42,7 @@ const App = () => {
               <Route path="/impressum" element={<Impressum />} />
               <Route path="*" element={<Error />} />
             </Routes>
+            <Footer />
           </>
         )}
       </BrowserRouter>
