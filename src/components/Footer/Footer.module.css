@@ -1,5 +1,5 @@
 footer {
-  background-color: var(--footer-color);
+  background-color: #333;
   color: #fff;
   padding: 20px 0;
   position: fixed;
@@ -11,7 +11,7 @@ nav ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   list-style-type: none;
-  padding: 0.2;
+  padding: 0;
 }
 
 nav ul li {
