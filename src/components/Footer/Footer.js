@@ -8,13 +8,16 @@ function Footer() {
       <nav>
         <ul>
           <li>
-            <a href="#"> Start Seite </a>
+            <Link to="/">StartSeite</Link>
           </li>
           <li>
-            <a href="#"> Filme </a>
+            <Link to="/Filme">Filme</Link>
           </li>
           <li>
-            <a href="#"> Serien </a>
+            <Link to="/Serien">Serien</Link>
+          </li>
+          <li>
+            <Link to="/Impressum">Impressum</Link>
           </li>
         </ul>
       </nav>
