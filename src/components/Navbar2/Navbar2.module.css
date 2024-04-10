@@ -57,5 +57,22 @@
   }
 }
 
+@media screen and (max-width: 500px) {
+  .navbar {
+    display: flex;
+    flex-wrap: wrap; /* Umbruch bei Bedarf */
+    justify-content: center; /* Zentrieren der Elemente horizontal */
+    align-items: center; /* Zentrieren der Elemente vertikal */
+  }
+
+  .button {
+    flex: 1 1 100%; /* Jeder Button nimmt die volle Breite in einer Zeile ein */
+    max-width: calc(33% - 20px); /* Maximale Breite für jeden Button */
+    margin: 10px; /* Abstand zwischen den Buttons */
+  }
+}
+
+
+
 
 
