@@ -29,7 +29,6 @@ function Footer() {
 
   return (
     <div className="App">
-      <h1>Footer</h1>
       {/* Deine Hauptinhalt hier */}
       {showFooter && (
         <footer className="Footer">
@@ -37,12 +36,6 @@ function Footer() {
             <ul>
               <li>
                 <Link to="/">StartSeite</Link>
-              </li>
-              <li>
-                <Link to="/Filme">Filme</Link>
-              </li>
-              <li>
-                <Link to="/Serien">Serien</Link>
               </li>
               <li>
                 <Link to="/Impressum">Impressum</Link>
