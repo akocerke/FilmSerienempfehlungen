@@ -6,22 +6,28 @@ body {
 }
 
 .movieapp {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Minimale Breite auf 100px geändert */
-    grid-gap: 20px;
+    display: flex;
     padding: 20px;
     width: 100%;
+    padding-left: 10px;
+    padding-right: 10px ;
 }
 
 .imagecontainer {
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 40px;
 }
+
 
 .imagecontainer img {
     width: 100%;
     height: auto;
     transition: transform 0.2s;
+    margin-right: 20px;
+    margin-bottom: 20px; 
 }
 
 .imagecontainer:hover img {

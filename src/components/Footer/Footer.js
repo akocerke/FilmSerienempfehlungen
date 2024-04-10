@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import "./Footer.module.css"; // Stile hier importieren
+import React, { useState, useEffect } from 'react';
+import './Footer.module.css'; // Stile hier importieren
 
 function Footer() {
   const [showFooter, setShowFooter] = useState(false);
@@ -9,10 +9,7 @@ function Footer() {
     function handleScroll() {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-      const scrollTop =
-        window.scrollY ||
-        window.pageYOffset ||
-        document.documentElement.scrollTop;
+      const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
 
       if (windowHeight + scrollTop >= documentHeight) {
         setShowFooter(true);
@@ -21,9 +18,9 @@ function Footer() {
       }
     }
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -31,18 +28,22 @@ function Footer() {
     <div className="App">
       {/* Deine Hauptinhalt hier */}
       {showFooter && (
-        <footer className="Footer">
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">StartSeite</Link>
-              </li>
-              <li>
-                <Link to="/Impressum">Impressum</Link>
-              </li>
-            </ul>
-          </nav>
-        </footer>
+        <footer className="Footer">      <nav>
+        <ul>
+          <li>
+            <Link to="/">StartSeite</Link>
+          </li>
+          <li>
+            <Link to="/Filme">Filme</Link>
+          </li>
+          <li>
+            <Link to="/Serien">Serien</Link>
+          </li>
+          <li>
+            <Link to="/Impressum">Impressum</Link>
+          </li>
+        </ul>
+      </nav></footer>
       )}
     </div>
   );
