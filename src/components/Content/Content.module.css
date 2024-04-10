@@ -1,6 +1,7 @@
 .mainContainer {
     width: 100%;
-    min-height: 90vh;
+    min-height: auto;
     background-color: var(--background-color);
     color: var(--primary-color);
+    overflow: hidden;
   }
