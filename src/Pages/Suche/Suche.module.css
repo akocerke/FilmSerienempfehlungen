@@ -9,20 +9,25 @@ body {
     display: flex;
     padding: 20px;
     width: 100%;
+    padding-left: 10px;
+    padding-right: 10px ;
 }
 
 .imagecontainer {
     position: relative;
     overflow: hidden;
-    background-color: red;
     display: flex;
     flex-wrap: wrap;
+    padding-left: 40px;
 }
+
 
 .imagecontainer img {
     width: 100%;
     height: auto;
     transition: transform 0.2s;
+    margin-right: 20px;
+    margin-bottom: 20px; 
 }
 
 .imagecontainer:hover img {
