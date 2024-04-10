@@ -4,7 +4,6 @@ import Startseite from "./Pages/Startseite/Startseite";
 import Filme from "./Pages/Filme/Filme";
 import Serien from "./Pages/Serien/Serien";
 import Suche from "./Pages/Suche/Suche";
-import Filmseite from "./Pages/Filmseite/Filmseite";
 import Favoriten from "./Pages/Favoriten/Favoriten";
 import Error from "./Pages/Error/Error";
 import Impressum from "./Pages/Impressum/Impressum";
