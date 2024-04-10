@@ -12,7 +12,6 @@ import Footer from "./components/Footer/Footer";
 import Navbar2 from "./components/Navbar2/Navbar2";
 import Header from './components/Header/Header';
 import Pageloader from './components/Pageloader/Pageloader';
-import Neuheiten from './Pages/Neuheiten/Neuheiten';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,19 +26,25 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-      <Header />
-      <Navbar2 />
-      <Footer />
-        <Routes>
-          <Route path="/" element={<Startseite />} exact />
-          <Route path="/filme" element={<Filme />} />
-          <Route path="/serien" element={<Serien />} />
-          <Route path="/suche" element={<Suche />} />
-          <Route path="*" element={<Error />} />
-          <Route path="/impressum" element={<Impressum />} />
-          <Route path="/favoriten" element={<Favoriten />} />
-          <Route path="/neuheiten" element={<Neuheiten />} />
-        </Routes>
+        {isLoading ? (
+          <Pageloader />
+        ) : (
+          <>
+            <Header />
+            <Navbar2 />
+            <Footer />
+            <Routes>
+              <Route path="/" element={<Startseite />} exact />
+              <Route path="/filme" element={<Filme />} />
+              <Route path="/serien" element={<Serien />} />
+              <Route path="/suche" element={<Suche />} />
+              <Route path="/filmseite/:id" element={<Filmseite />} />
+              <Route path="/favoriten" element={<Favoriten />} />
+              <Route path="/impressum" element={<Impressum />} />
+              <Route path="*" element={<Error />} />
+            </Routes>
+          </>
+        )}
       </BrowserRouter>
     </>
   );

@@ -1,16 +1,17 @@
 import React from 'react';
+import styles from '../Pages/Suche/Suche.module.css';
 
 const SearchBox = (props) => {
-	return (
-		<div className='col col-sm-4'>
-			<input
-				className='form-control'
-				value={props.value}
-				onChange={(event) => props.setSearchValue(event.target.value)}
-				placeholder='Was suchst du?...'
-			></input>
-		</div>
-	);
+    return (
+        <div className={styles.searchBox}>
+            <input
+                className={styles.formControl}
+                value={props.value}
+                onChange={(event) => props.setSearchValue(event.target.value)}
+                placeholder='Was suchst du?...'
+            />
+        </div>
+    );
 };
 
 export default SearchBox;
