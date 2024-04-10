@@ -8,9 +8,19 @@
     text-align: center;
 }
 
-.logoSize{
+.logoSize {
     width: 60%;
-}
+    animation: glow 0.9s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      filter: brightness(110%);
+    }
+    to {
+      filter: brightness(150%);
+    }
+  }
 
 .container-fluid{
     display: block;

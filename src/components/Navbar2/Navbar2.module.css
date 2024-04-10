@@ -31,6 +31,9 @@
   text-shadow: var(--secondary-color) 0.5px 0 10px;
 }
 
-.customIcon{
+.customIcon {
   color: var(--primary-color);
+  text-shadow: var(--secondary-color) 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
+
+
