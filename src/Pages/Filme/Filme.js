@@ -7,7 +7,7 @@ const Filme = () => {
     return (
       <div>
         <Content>
-        <h1 className={styles.h1}>Willkommen </h1>
+        <h1 className={styles.nichth1}>Text </h1>
         </Content>
     </div>
     );
