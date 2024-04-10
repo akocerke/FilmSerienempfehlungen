@@ -1,7 +1,7 @@
 /* Navbar.module.css */
 
 .navbar{
-    background-color: #212121;
+    background-color: var(--footer-color);
     color: var(--primary-color);
     border: solid #383838;
 }
