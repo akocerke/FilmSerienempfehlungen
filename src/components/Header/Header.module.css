@@ -27,4 +27,5 @@
     width: 100%;
     background-color: var(--footer-color);
     color: var(--primary-color);
+    text-align: center;
 }

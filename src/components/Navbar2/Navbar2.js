@@ -48,10 +48,10 @@ const Navbar2 = () => {
   return (
     <div className={styles.navbar}>
       {data.map((Val, index) => (
-        <Link key={index} to={Val.link}>
+        <Link key={index} to={Val.link} className={styles.linkTo}>
           <button className={styles.button}>
             <FontAwesomeIcon icon={Val.icon} className={styles.customIcon} />
-            <p className={styles.navbarlink}>{Val.name}</p>
+            <span className={styles.iconText}>{Val.name}</span>
           </button>
         </Link>
       ))}
