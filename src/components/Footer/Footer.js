@@ -29,6 +29,7 @@ function Footer() {
 
   return (
     <div className="App">
+      <h1>Footer</h1>
       {/* Deine Hauptinhalt hier */}
       {showFooter && (
         <footer className="Footer">
