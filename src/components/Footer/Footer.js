@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import "./Footer.module.css"; // Stile hier importieren
 
 function Footer() {
@@ -29,6 +29,7 @@ function Footer() {
 
   return (
     <div className="App">
+      <h1>Footer</h1>
       {/* Deine Hauptinhalt hier */}
       {showFooter && (
         <footer className="Footer">
