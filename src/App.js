@@ -12,6 +12,7 @@ import Impressum from "./Pages/Impressum/Impressum";
 import Footer from "./components/Footer/Footer";
 import Navbar2 from "./components/Navbar2/Navbar2";
 import Header from './components/Header/Header';
+import Neuheiten from './Pages/Neuheiten/Neuheiten';
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="*" element={<Error />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/favoriten" element={<Favoriten />} />
+          <Route path="/neuheiten" element={<Neuheiten />} />
         </Routes>
       </BrowserRouter>
     </>

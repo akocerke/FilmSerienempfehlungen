@@ -1,0 +1,10 @@
+h1 {
+    display: table;
+    color: white;
+    background-color: rgba(128, 128, 128, 0.2);
+    letter-spacing: 5px;
+    border-radius: 30px;
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+}
