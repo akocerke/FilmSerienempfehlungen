@@ -18,7 +18,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulieren einer Ladezeit
+    // Simulieren einer Ladezeit bla bla
     setTimeout(() => {
       setIsLoading(false);
     }, 4800); // Zum Beispiel 2000ms = 2 Sekunden
