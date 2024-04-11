@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchMovies } from "../../../src/apiServiceTV";
+import Content from "../../components/Content/Content";
 
-const PosterSRC () => {
-    let temp =  "https://www.countryflags.io/".concat(cityToCodeMatcher(city));
-    return temp.concat("/shiny/64.png");
-}
 
 const PopularTV = () => {
      const [movies, setMovies] = useState([]);
@@ -14,13 +11,16 @@ const PopularTV = () => {
                   setMovies(moviesData); };
                    fetchMoviesData(); }, []); 
                    
-                   return ( <div> <h1>Populäre Serien</h1> 
+                   return ( 
+                   <Content>
+                   <div> <h1>Populäre Serien</h1> 
                    {movies.map((movie) => ( 
                    <div key={movie.id}> 
-                   <img src={PosterSRC(movie.poster_path)} alt="TVPoster"/>
+                   <img src={`https://media.themoviedb.org/t/p/w220_and_h330_face/${movie.poster_path}`}alt={movie.name}/>
                    <h2>{movie.name}</h2> 
                    <p>{movie.overview}</p> 
                    </div> ))} </div> 
+                   </Content>
                    );
                 };
                    
