@@ -1,17 +1,13 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import "./Footer.module.css"; // Stile hier importieren
-import Content from "../Content/Content";
+import styles from "./Footer.module.css"
 
 function Footer() {
   const fechaActual = new Date().getFullYear();
 
   return (
-    <Content>
-      <footer
-        className="Footer"
-        style={{ position: "fixed", bottom: 0, width: "100%" }}
-      >
+      <footer className={styles.footer}>
         <nav>
           <ul>
             <li>
@@ -32,7 +28,6 @@ function Footer() {
           </ul>
         </nav>
       </footer>
-    </Content>
   );
 }
 

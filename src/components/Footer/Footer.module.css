@@ -1,20 +1,20 @@
 footer {
   background-color: var(--footer-color);
   color: #fff;
-  position: fixed;
+  flex-direction:column;
+  position: relative;
   bottom: 0;
   width: 100%;
+  display: flex;
+  text-align: center;
 }
 
 nav ul {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  list-style-type: none;
 }
 
-nav ul li {
-  flex-grow: 1;
-}
+
 
 nav ul li a {
   color: #fff;
