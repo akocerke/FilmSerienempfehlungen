@@ -33,7 +33,7 @@
     object-fit: cover;
     object-position: center;
     transition: transform 0.2s;
-    max-width: 100%;
+    max-width: 150px;
     height: 250px;
     border-radius: 5px;
     
