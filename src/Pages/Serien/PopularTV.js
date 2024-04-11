@@ -25,7 +25,6 @@ const PopularTV = () => {
                    <div key={movie.id} className={styles.gridItem}> 
                    <img src={`https://media.themoviedb.org/t/p/w220_and_h330_face/${movie.poster_path}`}alt={movie.name} className={styles.posterimg}/>
                    <h2 className={styles.title}>{movie.name}</h2> 
-                   <p className={styles.beschreibung}>{movie.overview}</p> 
                    </div>
                    </div> ))} </div> 
                    </Content>
