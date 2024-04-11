@@ -1,3 +1,8 @@
-.moviegrid{
-    width: 150px;
+.moviegrid {
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    text-align: center;
 }
+
