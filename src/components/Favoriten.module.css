@@ -1,0 +1,13 @@
+.addToFavourites {
+    margin-top: 5%;
+}
+
+.addToFavouritesC{
+    display: flex;
+    align-items: center;
+}
+
+.addToFavourites span {
+    margin-right: 8px; 
+}
+
