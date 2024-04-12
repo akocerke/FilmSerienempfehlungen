@@ -1,13 +1,30 @@
+/* Verbessertes CSS für die Startseite */
+
 .popcorncss {
   background-image: url("../../assets/ing/home.png");
   background-size: cover;
   background-position: center;
-  height: 350px;
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.popcorncss2{
+  align-items: center;
+  margin-top: 11%;
 }
 .popkorn {
+  font-size: 3.5em;
+  color: #fff;
+  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
   text-shadow: #fc0 3px 0 10px;
 }
 
 .popkorn1 {
-  text-shadow: rgb(34, 34, 32) 3px 0 10px;
+  font-size: 1.5em;
+  color: #fff;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
