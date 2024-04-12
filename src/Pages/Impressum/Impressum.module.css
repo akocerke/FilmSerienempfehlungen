@@ -12,6 +12,34 @@
   width: 80%;
   margin: 0 auto;
 }
+
+.Angaben h4 {
+  font-size: 1.2em;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.Angaben p {
+  color: var(--primary-color);
+  font-size: 0.6em;
+  font-weight: bold;
+}
+
+.angabenContent {
+  background-color: red;
+  display: flex;
+  align-items: center;
+}
+
+.angabenContent div{
+  margin-right: 30px;
+  
+}
+.angabenContent2 p{
+  
+  font-size: 0.5em;
+}
+
 .titel {
   display: flex;
   flex-direction: column;

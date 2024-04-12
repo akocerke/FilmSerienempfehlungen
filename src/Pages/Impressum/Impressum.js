@@ -16,13 +16,16 @@ const Impressum = () => {
       </div>
       <div className={styles.impressum}>
         <div className={styles.Angaben}>
-          <p>
-            <strong style={{ fontSize: "1.2em" }}>Angaben gemäß § 5 TMG</strong>
-          </p>
-          <p>
-            <strong style={{ fontSize: "1.2em" }}>Firma</strong>{" "}
-            <span style={style.primaryColor}>Filmrausch GmbH</span>
-          </p>
+          <h2>Angaben gemäß § 5 TMG</h2>
+          <div className={styles.angabenContent}>
+            <div className={styles.angabenContent2}>
+              <h4>Firma</h4>
+            </div>
+            <div>
+              <p>Filmrausch GmbH</p>
+            </div>
+          </div>
+
           <p>
             <strong style={{ fontSize: "1.2em" }}>Adresse</strong>{" "}
             <span style={style.primaryColor}>
