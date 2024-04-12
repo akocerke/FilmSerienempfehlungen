@@ -60,11 +60,10 @@
 
 
 .searchBoxSm {
-    /* Füge hier zusätzliche Stile hinzu, um das Verhalten der Suchbox auf kleineren Bildschirmen anzupassen, falls erforderlich */
+   
 }
 
 .formControl {
-    /* Füge hier die Stile für das Eingabefeld hinzu */
     width: 100%;
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
