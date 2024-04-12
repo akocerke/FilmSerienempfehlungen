@@ -6,7 +6,6 @@ import {
   faFilm,
   faTv,
   faSearch,
-  faNewspaper,
 } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
 import styles from "./Navbar2.module.css";
@@ -17,11 +16,6 @@ const Navbar2 = () => {
       icon: faHome,
       name: "Startseite",
       link: "/",
-    },
-    {
-      icon: faNewspaper,
-      name: "Neuheiten",
-      link: "/neuheiten",
     },
     {
       icon: faFilm,
