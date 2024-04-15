@@ -12,7 +12,10 @@ const Impressum = () => {
   return (
     <Content>
       <div className={styles.titel}>
-        <h1>Impressum</h1>
+        <div>
+          <h1>Impressum</h1>
+        </div>
+        <hr className={styles.new5} />
       </div>
       <div className={styles.impressum}>
         <div className={styles.Angaben1}>

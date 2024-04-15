@@ -5,6 +5,16 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
+
+hr {
+  width: 90%;
+  border: 1px solid rgba(85, 85, 85, 0.3);
+  border-radius: 5px;
+  box-shadow: rgb(145, 145, 145) 3px 0 10px;
+  padding-top: 10px;
+  max-width: 40%;
+}
+
 .Angaben1 {
   flex-direction: column;
   display: flex;
@@ -99,7 +109,7 @@
 .titel h1 {
   color: #ffffff;
   text-align: center;
-  text-shadow: #fc0 3px 0 10px;
+  text-shadow: rgb(145, 145, 145) 3px 0 10px;
 }
 
 .UnterImpressum {
