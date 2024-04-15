@@ -4,21 +4,45 @@
  text-align: center;
 }
 .row {
-    margin-right: 5%;
+    margin-bottom: 1px;
+    width: 75%;
+    margin: 0 auto;
 }
 
 .movieapp {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
     width: 80%;
     margin: 0 auto;
+    min-height: 80vh; /* Mindesthöhe von 80% der Bildschirmhöhe */
+    height: auto; /* Automatische Höhenanpassung basierend auf dem Inhalt */
 }
+
 .movieapp h1    {
     color: #ffffff;
     text-align: center;
-    text-shadow: #fc0 3px 0 10px;
+    text-shadow: rgba(2, 252, 210, 0.785) 0 0 10px;
+    margin-bottom: 1px;
+    padding: 20px;
+}
+
+.introH1{
+    border: 5px solid rgba(40, 252, 2, 0);
+    box-shadow: rgba(2, 252, 210, 0.785) 0px 0 10px;
+    border-radius: 5px;
+    width: 40%;
+    min-width: 40%;
+    margin: 0 auto;
+    width: 40%;
+    min-width: 40%;
+    margin: 0 auto;
+}
+
+.searchDiv{
+    margin-top: 5%;
+    justify-content: center;
+    text-align: center;
 }
 .imagecontainer {
     display: flex;
@@ -29,34 +53,21 @@
     padding: 2%;
 }
 
-.imagecontainer img {
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.2s;
-    max-width: 150px;
-    height: 250px;
-    border-radius: 5px;
-    
-}
+
 
 .overlay {
-    position: absolute;
+    position: relative;
     background: rgba(0, 0, 0, 0.8);
     width: 100%;
     transition: 0.5s ease;
     opacity: 0;
     bottom: 0;
-    font-size: 20px;
+    font-size: 15px;
     padding: 20px;
     text-align: center;
 }
 
-.imagecontainer img:hover {
-    cursor: pointer;
-    transform: scale(1.05); 
-    transition: transform 0.3s ease;
-    box-shadow: 0 0 10px rgba(227, 167, 57, 0.3);
-}
+
 
 
 .searchBoxSm {
@@ -64,7 +75,7 @@
 }
 
 .formControl {
-    width: 100%;
+    width: 30%;
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
