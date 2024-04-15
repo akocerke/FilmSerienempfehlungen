@@ -1,0 +1,127 @@
+.impressum {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.Angaben1 {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  margin: 2%;
+}
+
+.Angaben2 {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  margin: 2%;
+}
+
+.Angaben3 {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  margin: 2%;
+}
+
+.Angaben1 h4 {
+  font-size: 1em;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.Angaben2 h4 {
+  font-size: 1em;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.Angaben3 h4 {
+  font-size: 1em;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.Angaben1 p {
+  color: var(--primary-color);
+  font-size: 0.6em;
+  font-weight: bold;
+}
+.Angaben2 p {
+  color: var(--primary-color);
+  font-size: 0.6em;
+  font-weight: bold;
+}
+.Angaben3 p {
+  color: var(--primary-color);
+  font-size: 0.6em;
+  font-weight: bold;
+}
+
+.angabenContent1 {
+  width: 80%;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 0.75fr);
+  align-items: center;
+}
+.angabenContent2 {
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 0.75fr);
+  align-items: center;
+}
+.angabenContent3 {
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 0.75fr);
+  align-items: center;
+}
+
+.angabenContent1 div {
+  font-size: 1.2em;
+}
+.angabenContent2 div {
+  font-size: 1.2em;
+}
+.angabenContent3 div {
+  font-size: 1.2em;
+}
+
+.titel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1%;
+}
+.titel h1 {
+  color: #ffffff;
+  text-align: center;
+  text-shadow: #fc0 3px 0 10px;
+}
+
+.UnterImpressum {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+
+  padding: 2%;
+  margin: 2%;
+}
+.UnterImpressum1 h2 {
+  align-content: center;
+  padding: 1%;
+
+  font-size: 2em;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.UnterImpressum1 h4 {
+  color: var(--primary-color);
+  font-size: 1em;
+  font-weight: bold;
+}
