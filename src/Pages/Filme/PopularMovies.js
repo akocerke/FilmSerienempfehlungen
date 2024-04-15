@@ -23,6 +23,9 @@ const PopularMovies = () => {
     <Content>
       <div>
         <h1 className={styles.ueberschrift}>Populäre Filme</h1>
+        <div>
+          <hr className={styles.introH1}></hr>
+        </div>
       </div>
 
       <div className={styles.gridContainer}>
