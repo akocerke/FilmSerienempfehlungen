@@ -6,7 +6,16 @@
 .ueberschrift{
     color: #ffffff;
     text-align: center;
-    text-shadow: #fc0 3px 0 10px;
+    text-shadow: rgba(40, 252, 2, 0.785) 0px 0 10px;
+    
+}
+.introH1{
+  border: 1px solid rgba(40, 252, 2, 0.514);
+  box-shadow: rgba(40, 252, 2, 0.785) 0px 0 10px;
+  border-radius: 5px;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 2%;
 }
 
 .beschreibung {
@@ -56,6 +65,7 @@
   align-items: center; 
   border-radius: 5px;
   flex-direction: column;
+  border: 0.5px solid rgba(40, 252, 2, 0.514);
 }
 
 
@@ -76,7 +86,7 @@
     cursor: pointer;
     transform: scale(1.05); 
     transition: transform 0.3s ease;
-    box-shadow: 0 0 10px rgba(227, 167, 57, 0.3);
+    box-shadow: rgba(40, 252, 2, 0.785) 0px 0 10px;
   }
  
 

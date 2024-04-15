@@ -21,7 +21,7 @@ const PopularMovies = () => {
 
   return (
     <Content>
-      <div>
+      <div className={styles.introH1}>
         <h1 className={styles.ueberschrift}>Populäre Filme</h1>
       </div>
 
