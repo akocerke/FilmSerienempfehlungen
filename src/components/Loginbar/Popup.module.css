@@ -13,7 +13,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(128, 128, 128, 0.7); /* Grau transparenter Hintergrund */
+  background-color: rgba(128, 128, 128, 0.75); /* Grau transparenter Hintergrund */
   padding: 5%;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -25,10 +25,14 @@
   align-items: center;
   z-index: 3; /* Popup über dem Overlay */
   box-shadow: rgba(255, 255, 255, 0.785) 0px 0 20px;
+  justify-content: space-between;
 }
 
 .popup h2 {
-  margin-bottom: 5%;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-shadow: rgba(255, 255, 255, 0.785) 0px 0 10px;
 }
 
 .popup form {
@@ -38,27 +42,38 @@
 }
 
 .popup label {
-  margin-bottom: 5%;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #cccccc;
 }
 
 .popup input {
-  padding: 2%;
-  margin-bottom: 5%;
+  padding: 8px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 80%;
+  width: 100%;
 }
 
 .popup button {
-  padding: 3% 5%;
-  margin-top: 3%;
+  padding: 3% 6%;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 18px;
+  margin-top: 2%;
 }
 
 .popup button:hover {
   background-color: #0056b3;
+}
+
+.popup button.closeButton {
+  background-color: #ff0000; /* Rot als Hintergrundfarbe */
+}
+
+.popup button.closeButton:hover {
+  background-color: #960000; /* Dunkleres Rot im Hover-Zustand */
 }

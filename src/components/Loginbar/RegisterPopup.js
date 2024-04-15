@@ -21,7 +21,7 @@ const RegisterPopup = ({ onClose }) => {
               <input type="password" />
             </label>
             <button type="submit" className={styles.button}>Register</button>
-            <button type="button" onClick={onClose} className={styles.button}>Schließen</button>
+            <button type="button" onClick={onClose} className={styles.closeButton}>Schließen</button>
           </form>
         </div>
       </div>
