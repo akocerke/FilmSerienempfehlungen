@@ -1,8 +1,44 @@
 .moviegrid {
-    width: auto;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
-    text-align: center;
+    width: 200px;
+    background-color: rgba(85, 85, 85, 0.3);
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    flex-direction: column;
+    border: 1px solid rgba(2, 252, 210, 0.785);
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
 }
 
+.moviegrid:hover {
+    cursor: pointer;
+    transform: scale(1.05); 
+    transition: transform 0.3s ease;
+    box-shadow: rgba(2, 252, 210, 0.785) 0px 0 10px;
+}
+
+.moviegrid img {
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.2s;
+    max-width: 150px;
+    height: 250px;
+    border-radius: 5px;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    box-sizing: border-box;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.favI{
+    margin-top: 10px;
+}
