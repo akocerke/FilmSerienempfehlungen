@@ -1,25 +1,24 @@
 .loginbar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Buttons rechts ausrichten */
   align-items: center;
-  padding-right: 20px;
-  padding-top: 20px;
+  padding: 0.7%;
 }
 
-.loginbar button {
-  padding: 10px 20px;
+.loginButton, .registerButton {
+  padding: 0.5% 1%;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-right: 10px;
+  margin-left: 0.3%; /* Abstand zwischen den Buttons */
 }
 
-.loginbar button:last-child {
-  margin-right: 0;
+.registerButton {
+  background-color: #28a745;
 }
 
-.loginbar button:hover {
+.loginButton:hover, .registerButton:hover {
   background-color: #0056b3;
 }

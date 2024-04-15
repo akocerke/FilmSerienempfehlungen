@@ -17,8 +17,8 @@ const Loginbar = () => {
 
   return (
     <div className={styles.loginbar}>
-      <button onClick={toggleLoginPopup} className={styles.button}>Login</button>
-      <button onClick={toggleRegisterPopup} className={styles.button}>Register</button>
+      <button onClick={toggleLoginPopup} className={styles.loginButton}>Login</button>
+      <button onClick={toggleRegisterPopup} className={styles.registerButton}>Register</button>
       {showLoginPopup && <LoginPopup onClose={toggleLoginPopup} />}
       {showRegisterPopup && <RegisterPopup onClose={toggleRegisterPopup} />}
     </div>
