@@ -7,15 +7,19 @@
     color: #ffffff;
     text-align: center;
     text-shadow: rgba(40, 252, 2, 0.785) 0px 0 10px;
+    padding: 20px;
+    margin-bottom: 1px;
+    margin-top: 20px;
     
 }
 .introH1{
-  border: 1px solid rgba(40, 252, 2, 0.514);
+  border: 5px solid rgba(40, 252, 2, 0);
   box-shadow: rgba(40, 252, 2, 0.785) 0px 0 10px;
   border-radius: 5px;
-  width: 60%;
+  width: 40%;
+  min-width: 40%;
   margin: 0 auto;
-  margin-top: 2%;
+  
 }
 
 .beschreibung {
