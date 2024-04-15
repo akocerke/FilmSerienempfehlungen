@@ -1,43 +1,93 @@
 .impressum {
-  display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   flex-wrap: wrap;
-  align-content: center;
-  align-items: center;
+  justify-content: center;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
-.Angaben {
-  padding: 1%;
-  width: 80%;
-  margin: 0 auto;
+.Angaben1 {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
 }
 
-.Angaben h4 {
-  font-size: 1.2em;
+.Angaben2 {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.Angaben3 {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.Angaben1 h4 {
+  background-color: rgba(0, 255, 255, 0);
+  font-size: 1em;
   color: var(--secondary-color);
   font-weight: 700;
 }
 
-.Angaben p {
+.Angaben2 h4 {
+  background-color: rgba(0, 255, 255, 0);
+  font-size: 1em;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.Angaben3 h4 {
+  background-color: rgba(0, 255, 255, 0);
+  font-size: 1em;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.Angaben1 p {
+  color: var(--primary-color);
+  font-size: 0.6em;
+  font-weight: bold;
+}
+.Angaben2 p {
+  color: var(--primary-color);
+  font-size: 0.6em;
+  font-weight: bold;
+}
+.Angaben3 p {
   color: var(--primary-color);
   font-size: 0.6em;
   font-weight: bold;
 }
 
-.angabenContent {
-  background-color: red;
-  display: flex;
+.angabenContent1 {
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 0.75fr);
+  align-items: center;
+}
+.angabenContent2 {
+  height: 80px;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 0.75fr);
+  align-items: center;
+}
+.angabenContent3 {
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 0.75fr);
   align-items: center;
 }
 
-.angabenContent div{
-  margin-right: 30px;
-  
+.angabenContent1 div {
+  font-size: 1.2em;
 }
-.angabenContent2 p{
-  
-  font-size: 0.5em;
+.angabenContent2 div {
+  font-size: 1.2em;
+}
+.angabenContent3 div {
+  font-size: 1.2em;
 }
 
 .titel {
@@ -61,7 +111,17 @@
   padding: 2%;
   margin: 2%;
 }
-.UnterImpressum1 {
+.UnterImpressum1 h2 {
   align-content: center;
   padding: 1%;
+  background-color: rgba(0, 255, 255, 0);
+  font-size: 2em;
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.UnterImpressum1 h4 {
+  color: var(--primary-color);
+  font-size: 1em;
+  font-weight: bold;
 }
