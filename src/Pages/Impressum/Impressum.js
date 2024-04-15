@@ -2,12 +2,6 @@ import React from "react";
 import Content from "../../components/Content/Content";
 import styles from "../../Pages/Impressum/Impressum.module.css";
 
-const style = {
-  primaryColor: {
-    color: "var(--primary-color)",
-  },
-};
-
 const Impressum = () => {
   return (
     <Content>
