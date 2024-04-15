@@ -10,20 +10,19 @@
   }
 
   hr.new5 {
-    border: 1px solid  rgba(85, 85, 85, 0.3);
+    border: 5px solid rgba(40, 252, 2, 0);
+    box-shadow: rgba(254, 178, 2, 0.75) 0px 0 10px;
     border-radius: 5px;
-    box-shadow: rgb(145, 145, 145) 3px 0 10px;
-    padding-top: 10px;
-    max-width: 40%;
+    width: 40%;
+    min-width: 40%;
+    margin: 0 auto;
   }
 
 .ueberschrift{
   color: #ffffff;
-  text-shadow: #fc0 3px 0 10px;
-  width: 700px;
+  text-shadow: #feb202 0px 0 10px;
   margin-bottom: 1px;
   margin-top: 20px;
-  border-radius: 15px;
   padding: 20px;
   }
 
@@ -73,6 +72,7 @@ margin-top: 20px;
 display: flex; 
 align-items: center; 
 border-radius: 5px;
+border: 0.5px solid #fcad02;
 flex-direction: column;
 }
 
@@ -94,7 +94,7 @@ flex-direction: column;
   cursor: pointer;
   transform: scale(1.05); 
   transition: transform 0.3s ease;
-  box-shadow: 0 0 10px rgba(227, 167, 57, 0.3);
+  box-shadow: rgba(254, 178, 2, 0.75) 0px 0 10px;
 }
 
 
