@@ -38,6 +38,12 @@ const Impressum = () => {
             <div>
               <p>Musterstraße 123, 12345 Musterstadt</p>
             </div>
+            <div>
+              <h4>Adresse</h4>
+            </div>
+            <div>
+              <p>Musterstraße 123, 12345 Musterstadt</p>
+            </div>
 
             <div>
               <h4>E-mail</h4>
