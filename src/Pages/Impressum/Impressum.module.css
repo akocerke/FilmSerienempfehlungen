@@ -1,4 +1,5 @@
 .impressum {
+  background-color: aqua;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
@@ -6,74 +7,85 @@
   grid-template-columns: repeat(3, 1fr);
 }
 .Angaben1 {
+  background-color: blue;
   flex-direction: column;
   display: flex;
   align-items: center;
+  margin: 2%;
 }
 
 .Angaben2 {
+  background-color: rgb(53, 53, 240);
   flex-direction: column;
   display: flex;
   align-items: center;
+  margin: 2%;
 }
 
 .Angaben3 {
+  background-color: rgb(141, 141, 239);
   flex-direction: column;
   display: flex;
   align-items: center;
+  margin: 2%;
 }
 
 .Angaben1 h4 {
-  background-color: rgba(0, 255, 255, 0);
+  background-color: rgb(255, 0, 0);
   font-size: 1em;
   color: var(--secondary-color);
   font-weight: 700;
 }
 
 .Angaben2 h4 {
-  background-color: rgba(0, 255, 255, 0);
+  background-color: rgb(250, 94, 94);
   font-size: 1em;
   color: var(--secondary-color);
   font-weight: 700;
 }
 
 .Angaben3 h4 {
-  background-color: rgba(0, 255, 255, 0);
+  background-color: rgb(243, 172, 172);
   font-size: 1em;
   color: var(--secondary-color);
   font-weight: 700;
 }
 
 .Angaben1 p {
+  background-color: black;
   color: var(--primary-color);
   font-size: 0.6em;
   font-weight: bold;
 }
 .Angaben2 p {
+  background-color: rgb(29, 28, 28);
   color: var(--primary-color);
   font-size: 0.6em;
   font-weight: bold;
 }
 .Angaben3 p {
+  background-color: rgb(108, 103, 103);
   color: var(--primary-color);
   font-size: 0.6em;
   font-weight: bold;
 }
 
 .angabenContent1 {
+  background-color: green;
   flex-wrap: wrap;
   display: grid;
   grid-template-columns: repeat(2, 0.75fr);
   align-items: center;
 }
 .angabenContent2 {
-  height: 80px;
+  background-color: rgb(50, 125, 50);
   flex-wrap: wrap;
   display: grid;
   grid-template-columns: repeat(2, 0.75fr);
   align-items: center;
 }
 .angabenContent3 {
+  background-color: rgb(89, 119, 89);
   flex-wrap: wrap;
   display: grid;
   grid-template-columns: repeat(2, 0.75fr);

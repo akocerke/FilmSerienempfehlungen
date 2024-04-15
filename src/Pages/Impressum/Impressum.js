@@ -16,9 +16,9 @@ const Impressum = () => {
       </div>
       <div className={styles.impressum}>
         <div className={styles.Angaben1}>
+          <h2>Angaben gemäß § 5 TMG</h2>
+          <p />
           <div className={styles.angabenContent1}>
-            <h2>Angaben gemäß § 5 TMG</h2>
-            <div></div>
             <div>
               <h4>Firma</h4>
             </div>
@@ -48,9 +48,9 @@ const Impressum = () => {
           </div>
         </div>
         <div className={styles.Angaben2}>
+          <h2>Handelsregister</h2>
+          <p />
           <div className={styles.angabenContent2}>
-            <h2>Handelsregister</h2>
-            <p />
             <div>
               <h4>Registergericht</h4>
             </div>
@@ -78,9 +78,9 @@ const Impressum = () => {
           </div>
         </div>
         <div className={styles.Angaben3}>
+          <h2>Urheberrecht und Marken</h2>
+          <p />
           <div className={styles.angabenContent3}>
-            <h2>Urheberrecht und Marken</h2>
-            <div></div>
             <div>
               <h4>
                 Alle auf dieser Website <h4>verwendeten Marken und Logos</h4>
