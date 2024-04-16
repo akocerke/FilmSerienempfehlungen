@@ -10,7 +10,7 @@ const TopRated = () => {
   useEffect(() => {
     const fetchMoviesData = async () => {
       const moviesData = await fetchMovies();
-      setMovies(moviesData.slice(0, 5)); // Limitar las películas a solo las primeras 5
+      setMovies(moviesData.slice(0, 10));
     };
     fetchMoviesData();
   }, []);
@@ -19,6 +19,15 @@ const TopRated = () => {
   const formatDateGerman = (dateString) => {
     const options = { year: "numeric", month: "2-digit", day: "2-digit" };
     return new Date(dateString).toLocaleDateString("de-DE", options);
+  };
+
+  // Función para buscar en YouTube el trailer de la película
+  const searchOnYouTube = (movieTitle) => {
+    const searchQuery = encodeURIComponent(`${movieTitle} trailer`);
+    window.open(
+      `https://www.youtube.com/results?search_query=${searchQuery}`,
+      "_blank"
+    );
   };
 
   return (
@@ -37,6 +46,7 @@ const TopRated = () => {
               className={`${styles.gridItemContent} ${
                 index === currentIndex ? styles.active : ""
               }`}
+              onClick={() => searchOnYouTube(movie.title)}
             >
               <div className={styles.gridItem}>
                 <img
@@ -49,7 +59,6 @@ const TopRated = () => {
                   <h5 className={styles.title}>{movie.title}</h5>
                 </div>
                 <div className={styles.releasedateContainer}>
-                  {/* Veröffentlichungsdatum im deutschen Format anzeigen */}
                   <p className={styles.releasedate}>
                     {formatDateGerman(movie.release_date)}
                   </p>

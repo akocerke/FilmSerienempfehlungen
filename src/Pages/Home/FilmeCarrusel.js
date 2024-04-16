@@ -3,7 +3,7 @@ import { fetchMovies } from "../../../src/apiService";
 import Content from "../../components/Content/Content";
 import styles from "./FilmeCarrusel.module.css";
 
-const Film = () => {
+const FilmeCarrusel = () => {
   const [movies, setMovies] = useState([]);
   const [currentIndex] = useState(0);
 
@@ -15,10 +15,18 @@ const Film = () => {
     fetchMoviesData();
   }, []);
 
-  // Función para formatear la fecha en formato alemán
   const formatDateGerman = (dateString) => {
     const options = { year: "numeric", month: "2-digit", day: "2-digit" };
     return new Date(dateString).toLocaleDateString("de-DE", options);
+  };
+
+  // Función para buscar en YouTube el nombre de la película
+  const searchOnYouTube = (movieName) => {
+    const searchQuery = encodeURIComponent(`${movieName} trailer`);
+    window.open(
+      `https://www.youtube.com/results?search_query=${searchQuery}`,
+      "_blank"
+    );
   };
 
   return (
@@ -26,9 +34,10 @@ const Film = () => {
       <div>
         <h1 className={styles.ueberschrift}>Top 5 Filme</h1>
         <div>
-          <hr className={styles.introH1}></hr>
+          <hr className={styles.introH1} />
         </div>
       </div>
+
       <div className={styles.carousel}>
         <div className={styles.carouselContainer}>
           {movies.map((movie, index) => (
@@ -37,11 +46,13 @@ const Film = () => {
               className={`${styles.gridItemContent} ${
                 index === currentIndex ? styles.active : ""
               }`}
+              onClick={() => searchOnYouTube(movie.title)}
             >
               <div className={styles.gridItem}>
                 <img
                   src={`https://media.themoviedb.org/t/p/w220_and_h330_face/${movie.poster_path}`}
                   alt={movie.name}
+                  className={styles.moviePoster}
                 />
               </div>
               <div className={styles.beschreibung}>
@@ -63,4 +74,4 @@ const Film = () => {
   );
 };
 
-export default Film;
+export default FilmeCarrusel;

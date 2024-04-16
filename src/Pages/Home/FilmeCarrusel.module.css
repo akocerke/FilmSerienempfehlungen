@@ -23,6 +23,7 @@
 .carouselContainer::-webkit-scrollbar-thumb {
   background-color: rgba(40, 252, 2, 0.333);
   border-radius: 5px;
+  cursor: grab;
 }
 .carouselContainer {
   width: 60%;
@@ -76,8 +77,6 @@
 }
 
 .releasedate {
-  direction: rtl;
-  color: var(--primary-color);
 }
 
 .gridItem {

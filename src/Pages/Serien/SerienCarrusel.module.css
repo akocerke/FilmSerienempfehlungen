@@ -1,11 +1,10 @@
+/* Estilos generales */
 .ueberschrift {
-  justify-content: center;
   color: #ffffff;
   text-align: center;
   text-shadow: rgb(255, 204, 0) 3px 0 10px;
   padding: 20px;
-  margin-bottom: 1px;
-  margin-top: 20px;
+  margin: 20px auto 1px;
 }
 
 .introH1 {
@@ -14,6 +13,7 @@
   box-shadow: rgb(255, 204, 0) 3px 0 10px;
   padding-top: 10px;
   max-width: 40%;
+  margin: 0 auto;
 }
 
 .carrusel {
@@ -21,56 +21,63 @@
   justify-content: center;
 }
 
+/* Estilos del carrusel */
 .carruselContainer {
   width: 60%;
-  justify-content: center;
-  overflow-x: auto; /* Permitir desplazamiento horizontal */
-  white-space: nowrap; /* Evitar el salto de línea de los elementos */
-  display: flex; /* Utilizar flexbox para el contenedor principal */
-  gap: 20px; /* Espacio entre elementos */
-  padding: 1%; /* Ajustar el relleno según sea necesario */
-}
-
-.beschreibung {
-  flex-direction: row;
-  align-content: center;
-  background-color: rgba(127, 255, 212, 0);
-}
-
-.titleContainer {
-  flex-direction: row;
-  align-content: center;
-}
-
-.gridContainer {
+  overflow-x: auto;
   display: flex;
-  overflow-x: scroll; /* Permitir desplazamiento horizontal */
   gap: 20px;
-  padding: 20px; /* Agregar espacio alrededor del carrusel */
-  border-radius: 10px; /* Agregar bordes redondeados al carrusel */
-  background-color: #333; /* Cambiar el color de fondo del carrusel */
+  padding: 5%;
 }
 
-/* Ajustar estilos para cada elemento del carrusel */
-.gridItemContent {
-  flex: 0 0 auto; /* Evitar que los elementos del carrusel se expandan */
-  width: 200px;
-  background-color: rgba(85, 85, 85, 0.3);
+.carruselContainer::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 204, 0);
   border-radius: 5px;
-  overflow: hidden; /* Evitar que el contenido se desborde del contenedor */
-  transition: transform 0.3s ease; /* Agregar transición al desplazamiento */
+  cursor: grab;
+}
+
+/* Estilos de los elementos del carrusel */
+.gridItemContent {
+  flex: 0 0 auto;
+  width: 200px;
+  background-color: rgba(4, 253, 228, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
   border: 0.5px solid rgb(255, 204, 0);
+  padding: 10px;
 }
 
 .gridItemContent:hover {
   cursor: pointer;
   transform: scale(1.05);
-  transition: transform 0.3s ease;
   box-shadow: 0 0 10px rgb(255, 204, 0);
+}
+
+/* Estilos de la imagen */
+.gridItem img {
+  height: 250px;
+  border-radius: 5px;
+}
+
+/* Estilos del título */
+.titleContainer {
+  color: #ffffff;
+  text-align: center;
+  height: 50px;
+}
+
+/* Estilos de la fecha */
+.releasedateContainer {
+  text-align: center;
 }
 
 /* Estilos para el estado activo del elemento del carrusel */
 .active {
-  transform: scale(1.1); /* Aumentar el tamaño del elemento activo */
-  z-index: 2; /* Asegurar que el elemento activo esté por encima de los demás */
+  transform: scale(1.1);
+  z-index: 2;
 }

@@ -13,10 +13,19 @@ const CarruselTV = () => {
     fetchMoviesData();
   }, []);
 
-  // Funktion zur Konvertierung des Datums in das deutsche Format
+  // Función para formatear la fecha en formato alemán
   const formatDateGerman = (dateString) => {
     const options = { year: "numeric", month: "2-digit", day: "2-digit" };
     return new Date(dateString).toLocaleDateString("de-DE", options);
+  };
+
+  // Función para buscar en YouTube el trailer de la serie
+  const searchOnYouTube = (movieName) => {
+    const searchQuery = encodeURIComponent(`${movieName} trailer`);
+    window.open(
+      `https://www.youtube.com/results?search_query=${searchQuery}`,
+      "_blank"
+    );
   };
 
   return (
@@ -30,7 +39,11 @@ const CarruselTV = () => {
       <div className={styles.carrusel}>
         <div className={styles.carruselContainer}>
           {movies.map((movie) => (
-            <div className={styles.gridItemContent} key={movie.id}>
+            <div
+              key={movie.id}
+              className={styles.gridItemContent}
+              onClick={() => searchOnYouTube(movie.name)}
+            >
               <div className={styles.gridItem}>
                 <img
                   src={`https://media.themoviedb.org/t/p/w220_and_h330_face/${movie.poster_path}`}
@@ -42,7 +55,6 @@ const CarruselTV = () => {
                   <h5 className={styles.title}>{movie.name}</h5>
                 </div>
                 <div className={styles.releasedateContainer}>
-                  {/* Veröffentlichungsdatum im deutschen Format anzeigen */}
                   <p className={styles.releasedate}>
                     {formatDateGerman(movie.first_air_date)}
                   </p>
