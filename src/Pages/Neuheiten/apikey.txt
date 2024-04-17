@@ -1,9 +1,0 @@
-import { fetchMovies } from "../../../src/apiService";
-import React, { useEffect, useState } from "react";
-
-
-const Newmovies = () => 
-    { const [movies, setMovies] = useState([]); useEffect(() => 
-        { const fetchMoviesData = async () => { const moviesData = await fetchMovies(); setMovies(moviesData); }; fetchMoviesData(); }, []); return ( <div> <h1>Neuheiten</h1> {movies.map((movie) => ( <div key={movie.id}> <h1>{movie.poster}</h1> <h2>{movie.title}</h2> <p>{movie.overview}</p> </div> ))} </div> );};
-         
-         export default Newmovies;
