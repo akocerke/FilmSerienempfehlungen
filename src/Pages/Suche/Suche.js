@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Filmliste from "../../components/Filmliste";
 import FilmListeHeader from "../../components/FilmListeHeader";
 import SearchBox from "../../components/SearchBox";
 import AddFavourites from "../../components/Favoriten";
@@ -12,13 +11,17 @@ const Suche = () => {
   const [favourites, setFavourites] = useState([]);
 
   const getMovieRequest = async (searchValue) => {
-    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
+    const apiKey = "1ad397f85b6fe90915ecb92e15c0a3cc";
+    const url = `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=de-DE&query=${searchValue}&page=1&include_adult=false`;
 
-    const response = await fetch(url);
-    const responseJson = await response.json();
-
-    if (responseJson.Search) {
-      setMovies(responseJson.Search);
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.results) {
+        setMovies(data.results);
+      }
+    } catch (error) {
+      console.error("Error fetching movies:", error);
     }
   };
 
@@ -28,32 +31,52 @@ const Suche = () => {
   };
 
   useEffect(() => {
-    getMovieRequest(searchValue);
+    if (searchValue.trim() !== "") {
+      getMovieRequest(searchValue);
+    }
   }, [searchValue]);
+
+  const formatDateGerman = (dateString) => {
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return new Date(dateString).toLocaleDateString('de-DE', options);
+  };
 
   return (
     <Content>
       <div className={styles.movieapp}>
         <div className={styles.row}>
-          <div>
-            <FilmListeHeader heading="Suche" />
-          </div>
-          <div>
-            <hr className={styles.introH1}></hr>
-          </div>
+          <FilmListeHeader heading="Suche" className={styles.ueberschrift} />
+          <hr className={styles.introH1}></hr>
           <div className={styles.searchDiv}>
             <SearchBox
               searchValue={searchValue}
               setSearchValue={setSearchValue}
+              className={styles.searchBoxSm}
+              inputClassName={styles.formControl}
             />
           </div>
         </div>
-        <div className={styles.imagecontainer}>
-          <Filmliste
-            movies={movies}
-            favouriteComponent={AddFavourites}
-            handleFavouritesClick={addFavouriteMovie}
-          />
+        <div className={styles.gridContainer}>
+        {movies.map((movie) => (
+          <div className={styles.gridItemContent} key={movie.id}>
+            <div className={styles.gridItem}>
+            <img
+              src={movie.poster_path ? `https://image.tmdb.org/t/p/w185${movie.poster_path}` : 'https://via.placeholder.com/185x278'}
+              alt={movie.title || movie.name}
+            />
+            </div>
+            <div className={styles.beschreibung}>
+              <div className={styles.titleContainer}>
+                <h5 className={styles.title}>{movie.title || movie.name}</h5>
+              </div>
+              <div className={styles.releasedateContainer}>
+                <p className={styles.releasedate}>
+                  Veröffentlichungsdatum: {formatDateGerman(movie.release_date || movie.first_air_date)}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
         </div>
       </div>
     </Content>
