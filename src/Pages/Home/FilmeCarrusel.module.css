@@ -30,7 +30,7 @@
   overflow-x: auto; /* Permitir desplazamiento horizontal */
   display: flex; /* Utilizar flexbox para el contenedor principal */
   gap: 20px; /* Espacio entre elementos */
-  padding: 5%; /* Ajustar el relleno según sea necesario */
+  padding: 2%; /* Ajustar el relleno según sea necesario */
 }
 
 .ueberschrift {
