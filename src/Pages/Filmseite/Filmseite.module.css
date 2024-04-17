@@ -1,0 +1,72 @@
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.moviedetails {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.poster {
+    width: 300px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.2);
+    filter: grayscale(50%);
+    transition: all 0.3s ease;
+}
+
+.poster:hover {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+.title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-left: 40px;
+    color: #ffffff;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.overview {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #ffffff;
+    text-align: left;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+.releasedate {
+    font-size: 20px;
+    margin-top: 20px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.rating {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.backlink {
+    display: block;
+    margin-top: 40px;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.backlink:hover {
+    color: #ff7f50;
+}

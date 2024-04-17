@@ -13,7 +13,22 @@ export const fetchMovies = async () => {
     });
     return response.data.results;
   } catch (error) {
-    console.error("Error fetching movies", error);
+    console.error("Fehler beim Abrufen von Filmen", error);
     return [];
+  }
+};
+
+export const fetchMovieDetails = async (movieId) => {
+  try {
+    const response = await apiService.get(`movie/${movieId}`, {
+      params: {
+        api_key: API_KEY,
+        language: 'de-DE',
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Fehler beim Abrufen von Filmdetails", error);
+    return null;
   }
 };

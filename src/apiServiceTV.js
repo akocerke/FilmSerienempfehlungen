@@ -18,3 +18,18 @@ export const fetchMovies = async () => {
     return [];
   }
 };
+
+export const fetchMovieDetails = async (seriesId) => {
+  try {
+    const response = await apiService.get(`tv/${seriesId}`, {
+      params: {
+        api_key: API_KEY,
+        language: 'de-DE',
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Fehler beim Abrufen von Filmdetails", error);
+    return null;
+  }
+};
