@@ -12,7 +12,7 @@
   border-radius: 5px;
   box-shadow: rgb(255, 204, 0) 3px 0 10px;
   padding-top: 10px;
-  max-width: 40%;
+  max-width: 40%; 
   margin: 0 auto;
 }
 
@@ -24,10 +24,10 @@
 /* Estilos del carrusel */
 .carruselContainer {
   width: 60%;
-  overflow-x: auto;
-  display: flex;
-  gap: 20px;
-  padding: 2%;
+  overflow-x: auto; /* Permitir desplazamiento horizontal */
+  display: flex; /* Utilizar flexbox para el contenedor principal */
+  gap: 20px; /* Espacio entre elementos */
+  padding: 2%; /* Ajustar el relleno según sea necesario */
 }
 
 .carruselContainer::-webkit-scrollbar-thumb {
@@ -38,24 +38,40 @@
 
 /* Estilos de los elementos del carrusel */
 .gridItemContent {
-  flex: 0 0 auto;
-  width: 200px;
-  background-color: rgba(4, 253, 228, 0);
+  flex: 0 0 auto; /* Evitar que los elementos se expandan para ajustarse */
+  width: 200px; /* Ancho fijo de cada elemento */
+  background-color: rgba(85, 85, 85, 0.3);
+  margin-top: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column; /* Cambiar dirección de la flexbox a columna */
+  align-items: center; /* Alinear elementos al centro */
   border-radius: 5px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  border: 0.5px solid rgb(255, 204, 0);
-  padding: 10px;
+  border: 0.5px solid rgba(211, 176, 36, 0.699);
+}
+
+.gridItem {
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 20px;
 }
 
 .gridItemContent:hover {
   cursor: pointer;
   transform: scale(1.05);
-  box-shadow: 0 0 10px rgb(255, 204, 0);
+  transition: transform 0.3s ease;
+  box-shadow: rgba(211, 176, 36, 0.699) 0px 0 10px;
+}
+
+.gridContainer {
+  margin: 0 auto;
+  width: 80%;
+  display: flex; /* Utilizar flexbox para el contenedor principal */
+  flex-wrap: nowrap; /* No permitir que se envuelva en filas */
+  overflow-x: auto; /* Permitir desplazamiento horizontal */
+  gap: 20px; /* Espacio entre elementos */
+  padding: 1%;
+  justify-content: flex-start; /* Alinear elementos a la izquierda */
 }
 
 /* Estilos de la imagen */
