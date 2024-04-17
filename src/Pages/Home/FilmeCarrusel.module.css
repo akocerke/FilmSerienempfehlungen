@@ -28,14 +28,9 @@
 .carouselContainer {
   width: 60%;
   overflow-x: auto; /* Permitir desplazamiento horizontal */
-  white-space: nowrap; /* Evitar el salto de línea de los elementos */
   display: flex; /* Utilizar flexbox para el contenedor principal */
   gap: 20px; /* Espacio entre elementos */
   padding: 5%; /* Ajustar el relleno según sea necesario */
-}
-
-.title {
-  padding: 0.8em;
 }
 
 .ueberschrift {

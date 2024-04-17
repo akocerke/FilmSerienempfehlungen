@@ -10,7 +10,7 @@ const TopRated = () => {
   useEffect(() => {
     const fetchMoviesData = async () => {
       const moviesData = await fetchMovies();
-      setMovies(moviesData.slice(0, 10));
+      setMovies(moviesData.slice(0, 5));
     };
     fetchMoviesData();
   }, []);
