@@ -76,6 +76,10 @@ border: 0.5px solid #fcad02;
 flex-direction: column;
 }
 
+.gridContainer a {
+  color: inherit !important; /* Behält die Standardfarbe des Textes bei */
+  text-decoration: none !important; /* Entfernt die Unterstreichung */
+}
 
 
 

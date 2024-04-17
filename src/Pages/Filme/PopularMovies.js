@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // Importiere Link von react-router-dom
+import { Link } from "react-router-dom";
 import { fetchMovies } from "../../../src/apiService";
 import Content from "../../components/Content/Content";
 import styles from "./Filme.module.css";
@@ -31,7 +31,7 @@ const PopularMovies = () => {
 
       <div className={styles.gridContainer}>
         {movies.map((movie) => (
-          <Link to={`/filmseite/${movie.id}`} key={movie.id}> {/* Verwende Link und setze den Pfad auf die Filmseite mit der Film-ID */}
+          <Link to={`/filmseite/${movie.id}`} key={movie.id}>
             <div className={styles.gridItemContent}>
               <div className={styles.gridItem}>
                 <img

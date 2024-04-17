@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { fetchMovies } from "../../../src/apiServiceTV";
+import { Link } from "react-router-dom";
+import { fetchSeries } from "../../../src/apiService";
 import Content from "../../components/Content/Content";
 import styles from "./Serien.module.css"
 
 const PopularTV = () => { 
    const [movies, setMovies] = useState([]);
    useEffect(() => {
-     const fetchMoviesData = async () => {
-       const moviesData = await fetchMovies();
+     const fetchSeriesData = async () => {
+       const moviesData = await fetchSeries();
        setMovies(moviesData);
      };
-     fetchMoviesData();
+     fetchSeriesData(); 
    }, []);
  
    // Funktion zur Konvertierung des Datums in das deutsche Format
@@ -27,6 +28,7 @@ const PopularTV = () => {
        <hr className={styles.new5} />
        <div className={styles.gridContainer}>
          {movies.map((movie) => (
+          <Link to={`/serienseite/${movie.id}`} key={movie.id}>          
            <div className={styles.gridItemContent} key={movie.id}>
              <div className={styles.gridItem}>
                <img
@@ -38,12 +40,13 @@ const PopularTV = () => {
                <div className={styles.titleContainer}>
                  <h5 className={styles.title}>{movie.name}</h5>
                </div>
-               <div className={styles.releasedateContainer}>
+               <div className={styles.releasedateContainer}> 
                  {/* Veröffentlichungsdatum im deutschen Format anzeigen */}
                  <p className={styles.releasedate}>{formatDateGerman(movie.first_air_date)}</p>
                </div>
              </div>
            </div>
+           </Link>
          ))}
        </div>
      </Content>

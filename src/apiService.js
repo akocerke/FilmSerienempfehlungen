@@ -32,3 +32,34 @@ export const fetchMovieDetails = async (movieId) => {
     return null;
   }
 };
+
+export const fetchSeries = async () => {
+  try {
+    const response = await apiService.get("tv/popular", {
+      params: {
+        api_key: API_KEY,
+        language: 'de-DE',
+        page: '1',
+      },
+    });
+    return response.data.results;
+  } catch (error) {
+    console.error("Fehler beim Abrufen von Serien", error);
+    return [];
+  }
+};
+
+export const fetchSeriesDetails = async (seriesId) => {
+  try {
+    const response = await apiService.get(`tv/${seriesId}`, {
+      params: {
+        api_key: API_KEY,
+        language: 'de-DE',
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Fehler beim Abrufen von Seriendetails", error);
+    return null;
+  }
+};

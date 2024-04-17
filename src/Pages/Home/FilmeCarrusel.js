@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { fetchMovies } from "../../../src/apiService";
 import Content from "../../components/Content/Content";
 import styles from "./FilmeCarrusel.module.css";
@@ -20,15 +21,6 @@ const FilmeCarrusel = () => {
     return new Date(dateString).toLocaleDateString("de-DE", options);
   };
 
-  // Función para buscar en YouTube el nombre de la película
-  const searchOnYouTube = (movieName) => {
-    const searchQuery = encodeURIComponent(`${movieName} trailer`);
-    window.open(
-      `https://www.youtube.com/results?search_query=${searchQuery}`,
-      "_blank"
-    );
-  };
-
   return (
     <Content>
       <div>
@@ -41,12 +33,12 @@ const FilmeCarrusel = () => {
       <div className={styles.carousel}>
         <div className={styles.carouselContainer}>
           {movies.map((movie, index) => (
-            <div
+            <Link
               key={movie.id}
+              to={`/filmseite/${movie.id}`} // Verlinken zur Filmseite
               className={`${styles.gridItemContent} ${
                 index === currentIndex ? styles.active : ""
               }`}
-              onClick={() => searchOnYouTube(movie.title)}
             >
               <div className={styles.gridItem}>
                 <img
@@ -66,7 +58,7 @@ const FilmeCarrusel = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

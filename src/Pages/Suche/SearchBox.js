@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../Pages/Suche/Suche.module.css';
+import styles from './Suche.module.css';
 
 const SearchBox = (props) => {
     return (
