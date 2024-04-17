@@ -24,7 +24,7 @@
   overflow-x: auto;
   display: flex;
   gap: 20px;
-  padding: 5%;
+  padding: 2%;
 }
 .carouselContainer::-webkit-scrollbar-thumb {
   background-color: rgba(252, 85, 2, 0.548);

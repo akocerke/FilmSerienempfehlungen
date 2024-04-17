@@ -27,7 +27,7 @@
   overflow-x: auto;
   display: flex;
   gap: 20px;
-  padding: 5%;
+  padding: 2%;
 }
 
 .carruselContainer::-webkit-scrollbar-thumb {
