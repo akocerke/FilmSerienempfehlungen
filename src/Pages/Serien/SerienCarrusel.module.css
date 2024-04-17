@@ -31,7 +31,7 @@
 }
 
 .carruselContainer::-webkit-scrollbar-thumb {
-  background-color: rgb(255, 204, 0);
+  background-color: rgba(211, 176, 36, 0.699);
   border-radius: 5px;
   cursor: grab;
 }

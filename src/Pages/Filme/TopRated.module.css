@@ -27,7 +27,7 @@
   padding: 5%;
 }
 .carouselContainer::-webkit-scrollbar-thumb {
-  background-color: rgba(252, 85, 2, 0.785);
+  background-color: rgba(252, 85, 2, 0.548);
   border-radius: 5px;
   cursor: grab;
 }
