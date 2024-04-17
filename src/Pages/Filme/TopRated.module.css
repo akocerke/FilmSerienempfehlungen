@@ -1,0 +1,107 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Hintergrundfarbe der Scrollleiste */
+::-webkit-scrollbar-track {
+  /*background-color: #f1f1f1;*/
+}
+
+/* Farbe des Scrollbalkens */
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 1%;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+}
+.carouselContainer {
+  width: 60%;
+  overflow-x: auto;
+  display: flex;
+  gap: 20px;
+  padding: 5%;
+}
+.carouselContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(252, 85, 2, 0.548);
+  border-radius: 5px;
+  cursor: grab;
+}
+
+.ueberschrift {
+  color: #ffffff;
+  text-align: center;
+  text-shadow: rgba(252, 85, 2, 0.785) 0px 0 10px;
+  padding: 20px;
+  margin: 20px auto 1px;
+}
+
+.introH1 {
+  border: 1px solid rgba(40, 252, 2, 0);
+  border-radius: 5px;
+  box-shadow: rgba(252, 85, 2, 0.785) 0px 0 10px;
+  padding-top: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+.titleContainer {
+  color: #ffffff;
+  text-align: center;
+  height: 50px;
+}
+
+.releasedateContainer {
+  text-align: center;
+}
+
+.releasedate {
+}
+
+.gridItem {
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.gridItem img {
+  margin: auto;
+  height: 250px;
+  border-radius: 5px;
+}
+
+/* Item Container Poster/Titel/Beschreibung */
+.gridItemContent {
+  flex: 0 0 auto; /* Evitar que los elementos se expandan para ajustarse */
+  width: 200px; /* Ancho fijo de cada elemento */
+  background-color: rgba(85, 85, 85, 0);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* Cambiar dirección de la flexbox a columna */
+  align-items: center; /* Alinear elementos al centro */
+  border-radius: 5px;
+  border: 0.5px solid rgb(252, 156, 2);
+}
+
+/* Kompletter Container Hintergrund */
+.gridContainer {
+  margin: 0 auto;
+  width: 80%;
+  display: flex; /* Utilizar flexbox para el contenedor principal */
+  flex-wrap: nowrap; /* No permitir que se envuelva en filas */
+  overflow-x: auto; /* Permitir desplazamiento horizontal */
+  gap: 20px; /* Espacio entre elementos */
+  padding: 1%;
+  justify-content: flex-start; /* Alinear elementos a la izquierda */
+}
+
+.gridItemContent:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+  transition: transform 0.3s ease;
+  box-shadow: rgb(252, 144, 2) 0px 0 10px;
+}

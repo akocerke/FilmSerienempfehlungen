@@ -1,0 +1,83 @@
+/* Estilos generales */
+.ueberschrift {
+  color: #ffffff;
+  text-align: center;
+  text-shadow: rgb(255, 204, 0) 3px 0 10px;
+  padding: 20px;
+  margin: 20px auto 1px;
+}
+
+.introH1 {
+  border: 1px solid rgba(85, 85, 85, 0.3);
+  border-radius: 5px;
+  box-shadow: rgb(255, 204, 0) 3px 0 10px;
+  padding-top: 10px;
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+.carrusel {
+  display: flex;
+  justify-content: center;
+}
+
+/* Estilos del carrusel */
+.carruselContainer {
+  width: 60%;
+  overflow-x: auto;
+  display: flex;
+  gap: 20px;
+  padding: 5%;
+}
+
+.carruselContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(211, 176, 36, 0.699);
+  border-radius: 5px;
+  cursor: grab;
+}
+
+/* Estilos de los elementos del carrusel */
+.gridItemContent {
+  flex: 0 0 auto;
+  width: 200px;
+  background-color: rgba(4, 253, 228, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  border: 0.5px solid rgb(255, 204, 0);
+  padding: 10px;
+}
+
+.gridItemContent:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgb(255, 204, 0);
+}
+
+/* Estilos de la imagen */
+.gridItem img {
+  height: 250px;
+  border-radius: 5px;
+}
+
+/* Estilos del título */
+.titleContainer {
+  color: #ffffff;
+  text-align: center;
+  height: 50px;
+}
+
+/* Estilos de la fecha */
+.releasedateContainer {
+  text-align: center;
+}
+
+/* Estilos para el estado activo del elemento del carrusel */
+.active {
+  transform: scale(1.1);
+  z-index: 2;
+}

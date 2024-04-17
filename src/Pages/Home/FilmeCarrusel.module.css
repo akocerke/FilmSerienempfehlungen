@@ -1,0 +1,125 @@
+/* Breite der Scrollleiste */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Hintergrundfarbe der Scrollleiste */
+::-webkit-scrollbar-track {
+  /*background-color: #f1f1f1;*/
+}
+
+/* Farbe des Scrollbalkens */
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+/* Ändern des Aussehens des Scrollbalkens, wenn er aktiv ist */
+
+.carousel {
+  display: flex;
+  justify-content: center;
+}
+.carouselContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(40, 252, 2, 0.333);
+  border-radius: 5px;
+  cursor: grab;
+}
+.carouselContainer {
+  width: 60%;
+  overflow-x: auto; /* Permitir desplazamiento horizontal */
+  white-space: nowrap; /* Evitar el salto de línea de los elementos */
+  display: flex; /* Utilizar flexbox para el contenedor principal */
+  gap: 20px; /* Espacio entre elementos */
+  padding: 5%; /* Ajustar el relleno según sea necesario */
+}
+
+.title {
+  padding: 0.8em;
+}
+
+.ueberschrift {
+  color: #ffffff;
+  text-align: center;
+  text-shadow: rgba(40, 252, 2, 0.785) 0px 0 10px;
+  padding: 20px;
+  margin-bottom: 1px;
+  margin-top: 20px;
+}
+
+.introH1 {
+  border: 1px solid rgba(40, 252, 2, 0);
+  border-radius: 5px;
+  box-shadow: rgba(40, 252, 2, 0.785) 0px 0 10px;
+  padding-top: 10px;
+  max-width: 40%;
+}
+
+.beschreibung {
+  color: white;
+  padding: 1%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Alinear elementos al centro */
+}
+
+.titleContainer {
+  width: 100%;
+  text-align: center;
+  height: 50px;
+}
+
+.releasedateContainer {
+  width: 100%;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.releasedate {
+}
+
+.gridItem {
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+.gridItem img {
+  margin: auto;
+  height: 250px;
+  border-radius: 5px;
+}
+
+/* Item Container Poster/Titel/Beschreibung */
+.gridItemContent {
+  flex: 0 0 auto; /* Evitar que los elementos se expandan para ajustarse */
+  width: 200px; /* Ancho fijo de cada elemento */
+  background-color: rgba(85, 85, 85, 0.3);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* Cambiar dirección de la flexbox a columna */
+  align-items: center; /* Alinear elementos al centro */
+  border-radius: 5px;
+  border: 0.5px solid rgba(40, 252, 2, 0.514);
+}
+
+/* Kompletter Container Hintergrund */
+.gridContainer {
+  margin: 0 auto;
+  width: 80%;
+  display: flex; /* Utilizar flexbox para el contenedor principal */
+  flex-wrap: nowrap; /* No permitir que se envuelva en filas */
+  overflow-x: auto; /* Permitir desplazamiento horizontal */
+  gap: 20px; /* Espacio entre elementos */
+  padding: 1%;
+  justify-content: flex-start; /* Alinear elementos a la izquierda */
+}
+
+.gridItemContent:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  box-shadow: rgba(40, 252, 2, 0.785) 0px 0 10px;
+}
