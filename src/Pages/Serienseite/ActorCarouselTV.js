@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import styles from "./ActorCarousel.module.css";
+import styles from "./ActorCarouselTV.module.css";
 import { fetchSeriesActors } from "../../apiService";
 
-const ActorCarousel = ({ seriesId }) => {
+const ActorCarouselTV = ({ seriesId }) => {
   const [actors, setActors] = useState([]);
   const carouselRef = useRef(null);
 
@@ -62,4 +62,4 @@ const ActorCarousel = ({ seriesId }) => {
   );
 };
 
-export default ActorCarousel;
+export default ActorCarouselTV;

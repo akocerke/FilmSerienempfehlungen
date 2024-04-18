@@ -1,5 +1,3 @@
-// Filmseite.js
-
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { fetchMovieDetails } from "../../../src/apiService";
@@ -13,7 +11,7 @@ const formatDateGerman = (dateString) => {
 };
 
 const formatPercentage = (rating) => {
-  return `${Math.round(rating * 10)}%`;
+  return `${Math.round(rating * 10)}%`; 
 };
 
 
@@ -50,9 +48,7 @@ const Filmseite = () => {
             <p className={styles.rating}>
                 Rating: <span className={`${styles.circle} ${movie.vote_average >= 5 ? styles.green : styles.red}`}>{formatPercentage(movie.vote_average)}</span>
             </p>
-
-
-            <p className={styles.budget}>Budget: {movie.budget} $</p>
+            <p className={styles.budget}>Budget: {movie.Budget ? `$${movie.Budget}` : "Unbekannt"}</p>
             <p className={styles.studio}>Studio: {movie.production_companies && movie.production_companies.map(production_companies => production_companies.name).join(', ')}</p>
             <p className={styles.genres}>Genres: {movie.genres && movie.genres.map(genre => genre.name).join(', ')}</p>
           </div>
