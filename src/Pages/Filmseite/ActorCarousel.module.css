@@ -1,0 +1,85 @@
+.ueberschrift {
+  color: #ffffff;
+  text-align: center;
+  text-shadow: rgb(255, 204, 0) 3px 0 10px;
+  padding: 20px;
+  margin: 20px auto 1px;
+}
+
+.introH1 {
+  border: 1px solid rgba(85, 85, 85, 0.3);
+  border-radius: 5px;
+  box-shadow: rgb(255, 204, 0) 3px 0 10px;
+  padding-top: 10px;
+  max-width: 40%; 
+  margin: 0 auto;
+}
+
+.actortitle {
+  text-align: center;
+}
+.carrusel {
+  width: 80%; 
+  margin: 0 auto; 
+  padding: 0 20px; 
+}
+
+.carruselContainer {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  padding: 10px 0;
+}
+
+.carruselContainer::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #ff007f, #fcb045); 
+  border-radius: 5px;
+  cursor: grab;
+}
+
+
+.gridItemContent {
+  flex: 0 0 auto; 
+  width: auto; 
+  background-color: rgba(85, 85, 85, 0.3);
+  margin-top: 20px;
+  margin-right: 20px;
+  flex-direction: column; 
+  align-items: center; 
+  border-radius: 5px;
+  color: inherit !important; 
+  text-decoration: none !important; 
+}
+
+.gridItem {
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.gridItemContent:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.4s ease;
+  box-shadow: rgba(165, 165, 165, 0.699) 0px 0 10px;
+}
+
+.gridItem img {
+  height: 250px;
+  border-radius: 5px;
+}
+
+.titleContainer {
+  color: #ffffff;
+  text-align: center;
+  height: 50px;
+}
+
+.releasedateContainer {
+  text-align: center;
+}
+
+.active {
+  transform: scale(1.1);
+  z-index: 2;
+}

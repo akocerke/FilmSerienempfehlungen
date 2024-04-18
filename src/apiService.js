@@ -33,6 +33,21 @@ export const fetchMovieDetails = async (movieId) => {
   }
 };
 
+export const fetchMovieActors = async (movieId) => {
+  try {
+    const response = await apiService.get(`movie/${movieId}/credits`, {
+      params: {
+        api_key: API_KEY,
+        language: 'de-DE',
+      },
+    });
+    return response.data.cast;
+  } catch (error) {
+    console.error("Fehler beim Abrufen von Schauspielern", error);
+    return [];
+  }
+};
+
 export const fetchSeries = async () => {
   try {
     const response = await apiService.get("tv/popular", {
@@ -61,5 +76,20 @@ export const fetchSeriesDetails = async (seriesId) => {
   } catch (error) {
     console.error("Fehler beim Abrufen von Seriendetails", error);
     return null;
+  }
+};
+
+export const fetchSeriesActors = async (seriesId) => {
+  try {
+    const response = await apiService.get(`tv/${seriesId}/credits`, {
+      params: {
+        api_key: API_KEY,
+        language: 'de-DE',
+      },
+    });
+    return response.data.cast;
+  } catch (error) {
+    console.error("Fehler beim Abrufen von Schauspielern", error);
+    return [];
   }
 };
