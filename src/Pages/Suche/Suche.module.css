@@ -87,7 +87,6 @@
   
   .releasedate {
     direction: rtl;
-    color: var(--primary-color);
   }
   
   .gridItem {
@@ -112,6 +111,11 @@
     border-radius: 5px;
     flex-direction: column;
     border: 0.5px solid rgba(2, 252, 210, 0.785);
+  }
+
+  .gridContainer a {
+    color: inherit !important; /* Behält die Standardfarbe des Textes bei */
+    text-decoration: none !important; /* Entfernt die Unterstreichung */
   }
   
   /* Kompletter Container Hintergrund */

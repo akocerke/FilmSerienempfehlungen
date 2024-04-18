@@ -5,7 +5,7 @@
 
 /* Hintergrundfarbe der Scrollleiste */
 ::-webkit-scrollbar-track {
-  /*background-color: #f1f1f1;*/
+  /*background-color: #f1f1f1;*/ 
 }
 
 /* Farbe des Scrollbalkens */
@@ -98,6 +98,8 @@
   align-items: center; /* Alinear elementos al centro */
   border-radius: 5px;
   border: 0.5px solid rgba(40, 252, 2, 0.514);
+  color: inherit !important; /* Behält die Standardfarbe des Textes bei */
+  text-decoration: none !important; /* Entfernt die Unterstreichung */
 }
 
 /* Kompletter Container Hintergrund */

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import FilmListeHeader from "../../components/FilmListeHeader";
-import SearchBox from "../../components/SearchBox";
+import SearchBox from "./SearchBox";
 import AddFavourites from "../../components/Favoriten";
 import Content from "../../components/Content/Content";
 import styles from "./Suche.module.css";
@@ -57,26 +58,26 @@ const Suche = () => {
           </div>
         </div>
         <div className={styles.gridContainer}>
-        {movies.map((movie) => (
-          <div className={styles.gridItemContent} key={movie.id}>
-            <div className={styles.gridItem}>
-            <img
-              src={movie.poster_path ? `https://image.tmdb.org/t/p/w185${movie.poster_path}` : 'https://via.placeholder.com/185x278'}
-              alt={movie.title || movie.name}
-            />
-            </div>
-            <div className={styles.beschreibung}>
-              <div className={styles.titleContainer}>
-                <h5 className={styles.title}>{movie.title || movie.name}</h5>
+          {movies.map((movie) => (
+            <Link key={movie.id} to={movie.media_type === "movie" ? `/filmseite/${movie.id}` : `/serienseite/${movie.id}`} className={styles.gridItemContent}>
+              <div className={styles.gridItem}>
+                <img
+                  src={movie.poster_path ? `https://image.tmdb.org/t/p/w185${movie.poster_path}` : 'https://via.placeholder.com/185x278'}
+                  alt={movie.title || movie.name}
+                />
               </div>
-              <div className={styles.releasedateContainer}>
-                <p className={styles.releasedate}>
-                  Veröffentlichungsdatum: {formatDateGerman(movie.release_date || movie.first_air_date)}
-                </p>
+              <div className={styles.beschreibung}>
+                <div className={styles.titleContainer}>
+                  <h5 className={styles.title}>{movie.title || movie.name}</h5>
+                </div>
+                <div className={styles.releasedateContainer}>
+                  <p className={styles.releasedate}>
+                    Veröffentlichungsdatum: {formatDateGerman(movie.release_date || movie.first_air_date)}
+                  </p>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            </Link>
+          ))}
         </div>
       </div>
     </Content>

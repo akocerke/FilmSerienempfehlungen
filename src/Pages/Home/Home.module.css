@@ -1,31 +1,47 @@
-/* Verbessertes CSS für die Startseite */
-
 .popcorncss {
-  background-image: url("../../assets/ing/home.png");
+  background-image: url("../../assets/ing/home2.jpg");
   background-size: cover;
-  background-position: center;
-  height: 75vh;
+  background-position: center calc(12%);
+  min-height: 40vh; /* Mindesthöhe festlegen */
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.popcorncss2{
-  align-items: center;
-  margin-top: 11%;
+.popcorncss2 {
+  position: relative;
   width: 55%;
 }
+
 .popkorn {
-  font-size: 3.5em;
+  font-size: 3vw; /* Textgröße relativ zur Bildschirmbreite */
   color: #fff;
-  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
-  margin-bottom: 20px;
-  text-shadow: #fc0 3px 0 10px;
+  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5), 0px 0px 30px rgba(0, 0, 0, 0.9);
+  margin-bottom: 2vw; /* Margins relativ zur Bildschirmbreite */
 }
 
 .popkorn1 {
-  font-size: 1.5em;
+  font-size: 1.5vw; /* Textgröße relativ zur Bildschirmbreite */
   color: #fff;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5), 0px 0px 20px rgba(0, 0, 0, 0.7);
 }
 
+@media screen and (max-width: 768px) {
+  .popcorncss {
+    min-height: 30vh; /* Mindesthöhe für kleinere Bildschirme */
+  }
+
+  .popcorncss2 {
+    width: 80%; /* Breite des Textcontainers für kleinere Bildschirme */
+  }
+
+  .popkorn {
+    font-size: 5vw; /* Anpassung der Textgröße für kleinere Bildschirme */
+    margin-bottom: 3vw; /* Anpassung des Margins für kleinere Bildschirme */
+  }
+
+  .popkorn1 {
+    font-size: 3vw; /* Anpassung der Textgröße für kleinere Bildschirme */
+  }
+}

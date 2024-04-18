@@ -47,6 +47,8 @@
   align-items: center; /* Alinear elementos al centro */
   border-radius: 5px;
   border: 0.5px solid rgba(211, 176, 36, 0.699);
+  color: inherit !important; /* Behält die Standardfarbe des Textes bei */
+  text-decoration: none !important; /* Entfernt die Unterstreichung */
 }
 
 .gridItem {

@@ -85,6 +85,8 @@
   align-items: center; /* Alinear elementos al centro */
   border-radius: 5px;
   border: 0.5px solid rgb(252, 156, 2);
+  color: inherit !important; /* Behält die Standardfarbe des Textes bei */
+  text-decoration: none !important; /* Entfernt die Unterstreichung */
 }
 
 /* Kompletter Container Hintergrund */
