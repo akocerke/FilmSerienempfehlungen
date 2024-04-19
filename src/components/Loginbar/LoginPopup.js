@@ -32,7 +32,7 @@ const handleLoginResponse = (response) => {
   });
 
   // Weiterleitung auf die Favoriten-Seite mit der Benutzer-ID
-  window.location.href = `/favoriten/${id}`;
+  window.location.href = `/favoriten/?userId=${id}`;
 };
 
 // handleSubmit Funktion

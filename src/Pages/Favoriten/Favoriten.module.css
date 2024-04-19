@@ -1,0 +1,113 @@
+/* Grundlegende Styles */
+.title {
+    padding: 0.8em;
+  }
+  
+  .ueberschrift {
+    color: #ffffff;
+    text-align: center;
+    text-shadow: rgba(40, 252, 2, 0.785) 0px 0 10px;
+    padding: 20px;
+    margin-bottom: 1px;
+    margin-top: 20px;
+  }
+  
+  .introH1 {
+    border: 1px solid rgba(40, 252, 2, 0);
+    box-shadow: rgba(40, 252, 2, 0.785) 0px 0 10px;
+    border-radius: 5px;
+    width: 40%;
+    min-width: 40%;
+    margin: 0 auto;
+  }
+  
+  .beschreibung {
+    color: white;
+    padding: 1%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .titleContainer {
+    width: 100%;
+    text-align: center;
+    height: 50px;
+  }
+  
+  .releasedateContainer {
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+  }
+  
+  .releasedate {
+    direction: rtl;
+    color: var(--primary-color);
+  }
+  
+  .gridItem {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .gridItem img {
+    padding: 9%;
+    height: 250px;
+    border-radius: 5px;
+  }
+  
+  /* Item Container Poster/Titel/Beschreibung */
+  .gridItemContent {
+    width: 200px;
+    background-color: rgba(85, 85, 85, 0.3);
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    flex-direction: column;
+    border: 0.5px solid rgba(40, 252, 2, 0.514);
+  }
+  
+  /* Kompletter Container Hintergrund */
+  .gridContainer {
+    margin: 0 auto;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 1%;
+    justify-content: space-between;
+  }
+  
+  .gridItemContent:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    box-shadow: rgba(40, 252, 2, 0.785) 0px 0 10px;
+  }
+  
+  .gridContainer a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  
+  /* Responsive Anpassungen */
+  @media screen and (max-width: 768px) {
+    .gridContainer {
+      width: 90%;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      justify-content: center; /* Zentriert die Elemente horizontal */
+      align-items: center; /* Zentriert die Elemente vertikal */
+    }
+  
+    .gridItem img {
+      height: 200px;
+    }
+  
+    .gridItemContent {
+      width: 150px;
+    }
+  }
+  
