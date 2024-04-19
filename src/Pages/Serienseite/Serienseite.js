@@ -42,14 +42,13 @@ const Serienseite = () => {
           <h2 className={styles.tagline}>{movie.tagline}</h2>
           <h3 className={styles.status}>{movie.status}</h3>
           <p className={styles.overview}>{movie.overview ? `$${movie.overview}` : "Keine Beschreibung verfügbar"}</p>
-
               <ActorCarouselTV seriesId={id} />
           <div className={styles.info}>
             <p className={styles.releasedate}>Release Date: {formatDateGerman(movie.first_air_date)}</p>
             <p className={styles.rating}>
                 Rating: <span className={`${styles.circle} ${movie.vote_average >= 5 ? styles.green : styles.red}`}>{formatPercentage(movie.vote_average)}</span>
             </p>
-            <p className={styles.budget}>Budget: {movie.Budget ? `$${movie.Budget}` : "Unbekannt"}</p>
+            <p className={styles.budget}>Budget: {movie.budget ? `$${movie.budget}` : "Unbekannt"}</p>
             <p className={styles.studio}>Studio: {movie.production_companies && movie.production_companies.map(production_companies => production_companies.name).join(', ')}</p>
             <p className={styles.genres}>Genres: {movie.genres && movie.genres.map(genre => genre.name).join(', ')}</p>
           </div>
