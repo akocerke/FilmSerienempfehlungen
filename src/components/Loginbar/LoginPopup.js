@@ -1,7 +1,11 @@
+// Importe
 import React, { useState } from "react";
 import styles from "./Popup.module.css";
-import { login } from "../../apiUser"; // Importiere die login-Funktion aus apiUser.js
+import { login } from "../../apiUser";
+import { ToastContainer, toast } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
 
+// Komponente
 const LoginPopup = ({ onClose }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,17 +15,42 @@ const LoginPopup = ({ onClose }) => {
     event.stopPropagation();
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault(); // Verhindere das Standardverhalten des Formulars
+// Handle login response
+const handleLoginResponse = (response) => {
+  const { id } = response; // Extrahiere die Benutzer-ID aus der Antwort
+  console.log("Benutzer-ID:", id);
 
-    try {
-      const response = await login({ username, password }); // Rufe die login-Funktion auf und übergib Benutzername und Passwort
-      console.log(response); // Hier kannst du die Antwort des Backends verarbeiten, z.B. den Token speichern oder den Benutzer einloggen
-      onClose(); // Schließe das Popup nach erfolgreichem Login
-    } catch (error) {
-      setError("Fehler beim Login: Benutzername oder Passwort ungültig"); // Behandle Login-Fehler
-    }
-  };
+  // Zeige einen Erfolgstoast an
+  toast.success(`Erfolgreich eingeloggt als ${response.username}`, {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+
+  // Weiterleitung auf die Favoriten-Seite mit der Benutzer-ID
+  window.location.href = `/favorieten/${id}`;
+};
+
+// handleSubmit Funktion
+const handleSubmit = async (event) => {
+  event.preventDefault();
+
+  try {
+    const response = await login({ username, password });
+    console.log("Login Response:", response);
+    onClose();
+
+    // Behandle die Login-Antwort
+    handleLoginResponse(response);
+  } catch (error) {
+    setError("Fehler beim Login: Benutzername oder Passwort ungültig");
+  }
+};
+
 
   return (
     <>
@@ -31,7 +60,7 @@ const LoginPopup = ({ onClose }) => {
           <form onSubmit={handleSubmit}>
             <label>
               Benutzername:
-              <input type="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+              <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
             </label>
             <label>
               Passwort:
@@ -48,3 +77,6 @@ const LoginPopup = ({ onClose }) => {
 };
 
 export default LoginPopup;
+
+// Toast-Container außerhalb der Komponente rendern
+<ToastContainer />
