@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./ActorCarousel.module.css";
-import { fetchSeriesActors } from "../../apiService";
+import { fetchMovieActors } from "../../apiService";
 
-const ActorCarousel = ({ seriesId }) => {
+const ActorCarousel = ({ movieId }) => {
   const [actors, setActors] = useState([]);
   const carouselRef = useRef(null);
 
   useEffect(() => {
     const fetchActorsData = async () => {
       try {
-        const fetchedActors = await fetchSeriesActors(seriesId);
+        const fetchedActors = await fetchMovieActors(movieId); 
         setActors(fetchedActors);
       } catch (error) {
         console.error("Fehler beim Abrufen von Schauspielern", error);
@@ -17,7 +17,7 @@ const ActorCarousel = ({ seriesId }) => {
     };
 
     fetchActorsData();
-  }, [seriesId]);
+  }, [movieId]);
 
   const handleMouseMove = (e) => {
     const carousel = carouselRef.current;
