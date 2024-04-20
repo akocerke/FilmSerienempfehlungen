@@ -25,8 +25,8 @@ Mit dieser umfassenden Funktionalität bietet FilmRausch eine intuitive Plattfor
 - Interne API: FilmRausch nutzt Express als Backend-Framework für die interne API, was eine robuste und effiziente Kommunikation zwischen Frontend und Datenbank ermöglicht.
 - Datenbank: FilmRausch verwendet eine MySQL-Datenbank zur Speicherung von Benutzerinformationen sowie zur Verwaltung von Favoritenlisten. Die Datenbank unterstützt die folgenden Funktionen:
 
-- **Registrierung (Register):** Benutzer können sich in FilmRausch registrieren, wobei ihre Anmeldeinformationen sicher in der MySQL-Datenbank gespeichert werden.
+  - **Registrierung (Register):** Benutzer können sich in FilmRausch registrieren, wobei ihre Anmeldeinformationen sicher in der MySQL-Datenbank gespeichert werden.
   
-- **Anmeldung (Login):** Angemeldete Benutzer können sich bei FilmRausch anmelden, wobei ihre Anmeldeinformationen mit den Einträgen in der MySQL-Datenbank abgeglichen werden, um den Zugriff auf ihre Konten zu ermöglichen.
+  - **Anmeldung (Login):** Angemeldete Benutzer können sich bei FilmRausch anmelden, wobei ihre Anmeldeinformationen mit den Einträgen in der MySQL-Datenbank abgeglichen werden, um den Zugriff auf ihre Konten zu ermöglichen.
 
-- **Favoritenverwaltung:** Benutzer können Filme und Serien zu ihren Favoriten hinzufügen und entfernen. Diese Favoritenlisten werden in der MySQL-Datenbank gespeichert und sind mit den jeweiligen Benutzerkonten verknüpft, um eine personalisierte Erfahrung zu ermöglichen.
+  - **Favoritenverwaltung:** Benutzer können Filme und Serien zu ihren Favoriten hinzufügen und entfernen. Diese Favoritenlisten werden in der MySQL-Datenbank gespeichert und sind mit den jeweiligen Benutzerkonten verknüpft, um eine personalisierte Erfahrung zu ermöglichen.
