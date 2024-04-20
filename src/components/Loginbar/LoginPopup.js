@@ -1,12 +1,10 @@
-// Importe
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Popup.module.css";
 import { login } from "../../apiUser";
-import { ToastContainer, toast } from 'react-toastify'; 
-import 'react-toastify/dist/ReactToastify.css'; 
 
-// Komponente
 const LoginPopup = ({ onClose }) => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -15,42 +13,26 @@ const LoginPopup = ({ onClose }) => {
     event.stopPropagation();
   };
 
-// Handle login response
-const handleLoginResponse = (response) => {
-  const { id } = response; // Extrahiere die Benutzer-ID aus der Antwort
-  console.log("Benutzer-ID:", id);
+  const handleLoginResponse = (response) => {
+    const { id } = response;
+    console.log("Benutzer-ID:", id);
 
-  // Zeige einen Erfolgstoast an
-  toast.success(`Erfolgreich eingeloggt als ${response.username}`, {
-    position: "top-right",
-    autoClose: 2000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-  });
+    // Navigation zur Favoriten-Seite mit Benutzer-ID
+    navigate(`/favoriten/${id}`);
+  };
 
-  // Weiterleitung auf die Favoriten-Seite mit der Benutzer-ID
-  window.location.href = `/favoriten/${id}`;
-};
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-// handleSubmit Funktion
-const handleSubmit = async (event) => {
-  event.preventDefault();
-
-  try {
-    const response = await login({ username, password });
-    console.log("Login Response:", response);
-    onClose();
-
-    // Behandle die Login-Antwort
-    handleLoginResponse(response);
-  } catch (error) {
-    setError("Fehler beim Login: Benutzername oder Passwort ungültig");
-  }
-};
-
+    try {
+      const response = await login({ username, password });
+      console.log("Login Response:", response);
+      onClose();
+      handleLoginResponse(response);
+    } catch (error) {
+      setError("Fehler beim Login: Benutzername oder Passwort ungültig");
+    }
+  };
 
   return (
     <>
@@ -71,14 +53,9 @@ const handleSubmit = async (event) => {
             <button type="button" onClick={onClose} className={styles.closeButton}>Schließen</button>
           </form>
         </div>
-        
       </div>
-
-      
     </>
   );
 };
 
 export default LoginPopup;
-
-

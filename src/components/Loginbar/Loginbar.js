@@ -1,3 +1,4 @@
+// Loginbar.js
 import React, { useState } from "react";
 import LoginPopup from "./LoginPopup";
 import RegisterPopup from "./RegisterPopup";
@@ -9,6 +10,8 @@ const Loginbar = () => {
 
   const toggleLoginPopup = () => {
     setShowLoginPopup(!showLoginPopup);
+    // Schließe das Register-Popup, wenn das Login-Popup geöffnet wird
+    setShowRegisterPopup(false);
   };
 
   const toggleRegisterPopup = () => {
@@ -20,7 +23,7 @@ const Loginbar = () => {
       <button onClick={toggleLoginPopup} className={styles.loginButton}>Login</button>
       <button onClick={toggleRegisterPopup} className={styles.registerButton}>Register</button>
       {showLoginPopup && <LoginPopup onClose={toggleLoginPopup} />}
-      {showRegisterPopup && <RegisterPopup onClose={toggleRegisterPopup} />}
+      {showRegisterPopup && <RegisterPopup onClose={toggleRegisterPopup} showLoginPopup={setShowLoginPopup} />}
     </div>
   );
 };

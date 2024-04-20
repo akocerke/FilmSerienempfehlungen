@@ -17,6 +17,15 @@ export const login = async (credentials) => {
   }
 };
 
+// Funktion zur Registrierung
+export const register = async (userData) => {
+  try {
+    const response = await apiUser.post('/auth/register', userData); // POST-Anfrage an den Register-Endpunkt
+    return response.data; // Antwort des Backends zurückgeben
+  } catch (error) {
+    throw error; // Fehler weiterleiten oder behandeln
+  }
+};
 
 
 // Funktion um alle Favoriten eines Benutzers anhand der Benutzer-ID zurückzugeben
