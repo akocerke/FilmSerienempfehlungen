@@ -9,7 +9,7 @@
 ## Beschreibung
 FilmRausch ist eine Webanwendung, die den Benutzern die neuesten Film- und Serienempfehlungen bietet. Sie integriert die TMDb-API, um umfassende Informationen über Filme und Serien abzurufen und personalisierte Empfehlungen zu generieren.
 
-Zusätzlich zur Integration der TMDb-API verfügt FilmRausch über eine eigene MySQL-Datenbank, die es Benutzern ermöglicht, sich einzuloggen und ihre Lieblingsfilme und -serien zu verwalten. Benutzer können Titel zu ihrer Favoritenliste hinzufügen und entfernen, um ihre individuellen Favoritenlist zu erstellen und zu pflegen.
+Zusätzlich zur Integration der TMDb-API verfügt FilmRausch über eine eigene MySQL-Datenbank, die es Benutzern ermöglicht, sich zu registrieren, sich einzuloggen und ihre Lieblingsfilme und -serien zu verwalten. Benutzer können Titel zu ihrer Favoritenliste hinzufügen und entfernen, um ihre individuellen Favoritenlist zu erstellen und zu pflegen.
 
 Mit dieser umfassenden Funktionalität bietet FilmRausch eine intuitive Plattform für Film- und Serienliebhaber.
 
