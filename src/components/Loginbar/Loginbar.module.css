@@ -22,3 +22,18 @@
 .loginButton:hover, .registerButton:hover {
   background-color: #0056b3;
 }
+
+
+.logoutButton {
+  padding: 0.5% 1%;
+  background-color: #dc3545; /* Farbe für Logout-Button */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 0.3%; /* Abstand zwischen den Buttons */
+}
+
+.logoutButton:hover {
+  background-color: #c82333; /* Farbe für Hover-Effekt */
+}
