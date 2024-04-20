@@ -17,3 +17,4 @@ FilmRausch ist eine Webanwendung, die den Benutzern die neuesten Film- und Serie
 ## Technologiestack
 - Frontend: React.js
 - Externe API: TMDb-API
+- Interne API: Express
