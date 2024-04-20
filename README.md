@@ -20,10 +20,10 @@ Mit dieser umfassenden Funktionalität bietet FilmRausch eine intuitive Plattfor
 - Verwaltung der Favoriten (Filme und Serien) als eingeloggter Benutzer
 
 ## Technologiestack
-- Frontend: FilmRausch verwendet React.js für die Benutzeroberfläche, was eine moderne und reaktionsschnelle Benutzererfahrung ermöglicht.
-- Externe API: Die Anwendung integriert die TMDb-API, um umfassende Informationen über Filme und Serien abzurufen und personalisierte Empfehlungen zu generieren.
-- Interne API: FilmRausch nutzt Express als Backend-Framework für die interne API, was eine robuste und effiziente Kommunikation zwischen Frontend und Datenbank ermöglicht.
-- Datenbank: FilmRausch verwendet eine MySQL-Datenbank zur Speicherung von Benutzerinformationen sowie zur Verwaltung von Favoritenlisten. Die Datenbank unterstützt die folgenden Funktionen:
+- Frontend: FilmRausch verwendet **React.js** für die Benutzeroberfläche, was eine moderne und reaktionsschnelle Benutzererfahrung ermöglicht.
+- Externe API: Die Anwendung integriert die **TMDb-API**, um umfassende Informationen über Filme und Serien abzurufen und personalisierte Empfehlungen zu generieren.
+- Interne API: FilmRausch nutzt **Express** als Backend-Framework für die interne API, was eine robuste und effiziente Kommunikation zwischen Frontend und Datenbank ermöglicht.
+- Datenbank: FilmRausch verwendet eine **MySQL-Datenbank** zur Speicherung von Benutzerinformationen sowie zur Verwaltung von Favoritenlisten. Die Datenbank unterstützt die folgenden Funktionen:
 
   - **Registrierung (Register):** Benutzer können sich in FilmRausch registrieren, wobei ihre Anmeldeinformationen sicher in der MySQL-Datenbank gespeichert werden.
   
