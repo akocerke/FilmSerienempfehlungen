@@ -13,6 +13,7 @@ FilmRausch ist eine Webanwendung, die den Benutzern die neuesten Film- und Serie
 - Anzeige der neuesten Film- und Serienempfehlungen
 - Details zu einzelnen Filmen und Serien, einschließlich Besetzung, Handlung und Bewertungen
 - Suchfunktion für gezielte Suche nach bestimmten Titeln
+- Verwaltung der Favoriten als eingeloggter Benutzer
 
 ## Technologiestack
 - Frontend: React.js
