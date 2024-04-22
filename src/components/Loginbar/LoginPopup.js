@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from 'jwt-decode'; // Importieren von jwt-decode
 import styles from "./Popup.module.css";
 import { login } from "../../apiUser";
 
@@ -9,35 +10,29 @@ const LoginPopup = ({ onClose }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handlePopupClick = (event) => {
-    event.stopPropagation();
-  };
-
-  const handleLoginResponse = (response) => {
-    const { id } = response;
-    console.log("Benutzer-ID:", id);
-
-    // Navigation zur Favoriten-Seite mit Benutzer-ID
-    navigate(`/favoriten/${id}`);
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await login({ username, password });
-      console.log("Login Response:", response);
-      onClose();
-      handleLoginResponse(response);
+      const token = await login({ username, password });
+      console.log("Login erfolgreich, Token erhalten:", token);
+      
+      // Dekodieren des Tokens, um die Benutzer-ID zu erhalten
+      const decodedToken = jwtDecode(token);
+      console.log("Benutzer-ID:", decodedToken.id);
+
+      onClose();  // Schließen des Login-Popups
+      navigate(`/favoriten/${decodedToken.id}`);  // Navigation zur Favoriten-Seite mit Benutzer-ID
     } catch (error) {
-      setError("Fehler beim Login: Benutzername oder Passwort ungültig");
+      console.error("Login Fehler:", error.message);
+      setError("Fehler beim Login: " + error.message);
     }
   };
 
   return (
     <>
       <div className={styles.overlay} onClick={onClose}>
-        <div className={styles.popup} onClick={handlePopupClick}>
+        <div className={styles.popup} onClick={(event) => event.stopPropagation()}>
           <h2>Login</h2>
           <form onSubmit={handleSubmit}>
             <label>
