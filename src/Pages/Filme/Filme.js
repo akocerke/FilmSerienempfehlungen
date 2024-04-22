@@ -5,9 +5,7 @@ import Content from "../../../src/components/Content/Content";
 const Filme = () => {
   return (
     <Content>
-      <div className="App">
-        <Movies />
-      </div>
+      <Movies />
     </Content>
   );
 };

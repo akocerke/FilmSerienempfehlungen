@@ -40,7 +40,7 @@ const App = () => {
               <Route path="/suche" element={<Suche />} />
               <Route path="/filmseite/:id" element={<Filmseite />} />
               <Route path="/serienseite/:id" element={<Serienseite />} />
-              <Route path="/favoriten" element={<Favoriten />} />
+              <Route path="/favoriten/:userId" element={<Favoriten />} />
               <Route path="/impressum" element={<Impressum />} />
               <Route path="*" element={<Error />} />
             </Routes>

@@ -36,18 +36,6 @@ export const register = async (userData) => {
   }
 };
 
-
-// Funktion um alle Favoriten eines Benutzers anhand der Benutzer-ID zurückzugeben
-export const getFavoritesByUserId = async (userId) => {
-    try {
-      const response = await apiUser.get(`/favorites/byUserId/${userId}`); 
-      return response.data; // Antwort des Backends zurückgeben
-    } catch (error) {
-      throw error; // Fehler weiterleiten oder behandeln
-    }
-  };
-  
-
  // Funktion zum Ausloggen
 export const logout = async () => {
   try {
@@ -70,6 +58,15 @@ export const logout = async () => {
 };
 
 
+// Funktion um alle Favoriten eines Benutzers anhand der Benutzer-ID zurückzugeben
+export const getFavoritesByUserId = async (userId) => {
+  try {
+    const response = await apiUser.get(`/favorites/byUserId/${userId}`); 
+    return response.data; // Antwort des Backends zurückgeben
+  } catch (error) {
+    throw error; // Fehler weiterleiten oder behandeln
+  }
+};
 
 
 
