@@ -18,8 +18,11 @@
 .registerButton {
   background-color: #28a745;
 }
+.registerButton:hover{
+  background-color: #0c7d26;
+}
 
-.loginButton:hover, .registerButton:hover {
+.loginButton:hover {
   background-color: #0056b3;
 }
 
