@@ -134,7 +134,10 @@ const Filmseite = () => {
             <p className={styles.studio}>Studio: {movie.production_companies && movie.production_companies.map(production_companies => production_companies.name).join(', ')}</p>
             <p className={styles.genres}>Genres: {movie.genres && movie.genres.map(genre => genre.name).join(', ')}</p>
           </div>
-          <Link to="/filme" className={styles.backlink}>Zurück zu Filme</Link>
+            <div className={styles.backlinkContainer}>
+              <Link to="/filme" className={styles.backlink}>Zurück zu Filme</Link>
+              <Link to="/suche" className={styles.backlink}>Suche weitere Filme</Link>
+            </div>
         </div>
       </div>
     </Content>
