@@ -36,6 +36,7 @@
 .container1 {
   width: 100%;
   flex-direction: column;
+  height: auto;
 }
 
 .container2{
@@ -52,6 +53,7 @@
   gap: 50px; 
   padding: 1%;
   justify-content: space-between;
+  margin-bottom: 3%;
 }
 
 .movies, .series {
