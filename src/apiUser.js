@@ -61,15 +61,6 @@ export const logout = async () => {
 };
 
 
-// Funktion zum Hinzufügen von Favoriten
-export const addFavorite = async ({ userId, movieId, seriesId }) => {
-  try {
-    const response = await apiUser.post('/favorites/add', { userId, movieId, seriesId }); // POST-Anfrage an den Favoriten-Hinzufügen-Endpunkt
-    return response.data; // Antwort des Backends zurückgeben
-  } catch (error) {
-    throw error; // Fehler weiterleiten oder behandeln
-  }
-};
 
 // Funktion zum Hinzufügen von Favoriten
 export const addFavorite = async ({ userId, movieId, seriesId }) => {
