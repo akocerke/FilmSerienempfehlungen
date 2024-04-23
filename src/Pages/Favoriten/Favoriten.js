@@ -4,45 +4,68 @@ import { getFavoritesByUserId } from "../../apiUser";
 import { fetchMovieDetails, fetchSeriesDetails } from "../../apiService";
 import Content from "../../components/Content/Content";
 import styles from "./Favoriten.module.css";
+import { jwtDecode } from 'jwt-decode';
 
 const Favoriten = () => {
-  const { userId } = useParams();
   const [favorites, setFavorites] = useState({ movies: [], series: [] });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { userId: urlUserId } = useParams(); // Extrahiert userId aus der URL
 
   useEffect(() => {
-    const fetchFavorites = async () => {
-      try {
-        const { movieIds, seriesIds } = await getFavoritesByUserId(userId);
-        const moviesPromise = Promise.all(
-          movieIds.map((id) => fetchMovieDetails(id))
-        );
-        const seriesPromise = Promise.all(
-          seriesIds.map((id) => fetchSeriesDetails(id))
-        );
-        const [movies, series] = await Promise.all([
-          moviesPromise,
-          seriesPromise,
-        ]);
-        setFavorites({ movies, series });
+    setLoading(true);  // Setzen des Ladezustands bei jedem Aufruf des useEffect
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setError({ message: "Kein Token gefunden. Bitte melden Sie sich an." });
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const decoded = jwtDecode(token);
+      const tokenUserId = decoded.id;  // Nutze 'id' aus dem Token
+
+      if (!tokenUserId) {
+        setError(new Error("Token enthält keine Benutzer-ID."));
         setLoading(false);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
+        return;
       }
-    };
 
-    fetchFavorites();
-  }, [userId]);
+      if (tokenUserId.toString() !== urlUserId) {
+        setError(new Error("Zugriff verweigert: Sie können nur Ihre eigenen Favoriten anzeigen."));
+        setLoading(false);
+        return;
+      }
 
-  const handleDelete = async (type, id) => {
-    console.log(`Lösche ${type} mit der ID ${id}`);
-  };
+      const fetchFavorites = async () => {
+        try {
+          const { movieIds, seriesIds } = await getFavoritesByUserId(tokenUserId);
+          const moviesPromise = movieIds.map(id => fetchMovieDetails(id));
+          const seriesPromise = seriesIds.map(id => fetchSeriesDetails(id));
+          const [movies, series] = await Promise.all([
+            Promise.all(moviesPromise),
+            Promise.all(seriesPromise),
+          ]);
+          setFavorites({ movies, series });
+        } catch (error) {
+          setError(error);
+        } finally {
+          setLoading(false);
+        }
+      };
 
-  if (loading) return <div className={styles.container}>Am Laden...</div>;
-  if (error)
-    return <div className={styles.container}>Fehler: {error.message}</div>;
+      fetchFavorites();
+    } catch (error) {
+      setError(error);
+      setLoading(false);
+    }
+  }, [urlUserId]);  // useEffect beobachtet Änderungen an urlUserId
+
+  if (loading) return <div className={styles.loader}>
+    <div className={styles.loaderWheel}></div>
+    <div className={styles.loaderText}></div>
+  </div>;
+  if (error) return <div className={styles.errorHandling}><h3>Error:</h3> <p>{error.message}</p></div>;
 
   return (
     <Content>
@@ -50,10 +73,9 @@ const Favoriten = () => {
         <h1 className={styles.ueberschrift}>Favoriten</h1>
         <hr className={styles.introH1} />
         <div className={styles.container1}>
-        <h2 className={styles.filmeH2}>Filme</h2>
+          <h2 className={styles.filmeH2}>Filme</h2>
           <div className={styles.gridContainer}>
             <div className={styles.movies}>
-              
               {favorites.movies.map((movie) => (
                 <div key={movie.id} className={styles.gridItem}>
                   <div className={styles.gridItemContent}>
@@ -61,45 +83,26 @@ const Favoriten = () => {
                       src={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`}
                       alt={movie.title}
                     />
-                    <div className={styles.u3}>
-                      <h3>{movie.title}</h3>
-                    </div>
-                    <button
-                      className={styles.buttonF}
-                      onClick={() => handleDelete("Film", movie.id)}
-                    >
-                      Löschen
-                    </button>
+                    <h3>{movie.title}</h3>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-          <div className={styles.container1}>
           <h2 className={styles.serieH2}>Serien</h2>
-            <div className={styles.gridContainer}>
-              <div className={styles.series}>
-                
-                {favorites.series.map((series) => (
-                  <div key={series.id} className={styles.gridItem}>
-                    <div className={styles.gridItemContent}>
-                      <img
-                        src={`https://image.tmdb.org/t/p/w220_and_h330_face${series.poster_path}`}
-                        alt={series.name}
-                      />
-                      <div className={styles.u3}>
-                        <h3>{series.name}</h3>
-                      </div>
-                      <button
-                        className={styles.buttonF}
-                        onClick={() => handleDelete("Serie", series.id)}
-                      >
-                        Löschen
-                      </button>
-                    </div>
+          <div className={styles.gridContainer}>
+            <div className={styles.series}>
+              {favorites.series.map((series) => (
+                <div key={series.id} className={styles.gridItem}>
+                  <div className={styles.gridItemContent}>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w220_and_h330_face${series.poster_path}`}
+                      alt={series.name}
+                    />
+                    <h3>{series.name}</h3>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
