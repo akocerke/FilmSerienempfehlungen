@@ -1,16 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faFilm,
-  faTv,
-  faSearch,
-} from "@fortawesome/free-solid-svg-icons";
+import { faHome, faFilm, faTv, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
 import styles from "./Navbar2.module.css";
+import { useAuth } from '../../auth/AuthContext'; 
 
 const Navbar2 = () => {
+  const { user, isLoggedIn } = useAuth(); 
+  const userId = user ? user.id : null;  
+
   const data = [
     {
       icon: faHome,
@@ -35,7 +34,7 @@ const Navbar2 = () => {
     {
       icon: faStar,
       name: "Favoriten",
-      link: "/favoriten",
+      link: isLoggedIn ? `/favoriten/${userId}` : "/", 
     },
   ];
 

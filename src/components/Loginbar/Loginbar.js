@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import LoginPopup from "./LoginPopup";
 import RegisterPopup from "./RegisterPopup";
 import styles from "./Loginbar.module.css";
-
-import {logout} from "../../apiUser";
+import { useAuth } from '../../auth/AuthContext'; // Pfad anpassen
 
 const Loginbar = () => {
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [showRegisterPopup, setShowRegisterPopup] = useState(false);
-  const navigate = useNavigate(); // React Router Hook für die Navigation
+  const { isLoggedIn, logout } = useAuth(); // Authentifizierungsstatus und Logout-Funktion aus dem Kontext
+  const navigate = useNavigate(); 
 
   const toggleLoginPopup = () => {
     setShowLoginPopup(!showLoginPopup);
@@ -22,13 +22,9 @@ const Loginbar = () => {
   };
 
   const handleLogout = async () => {
-    console.log("Logging out..."); // Konsolenausgabe im Browser
     try {
-      await logout();  // Sendet die Logout-Anfrage an den Server
-      localStorage.removeItem('token'); // Entfernt den Token aus dem lokalen Speicher
-      console.log(localStorage.getItem('token'));
-      console.log("Redirecting to home page"); // Weitere Konsolenausgabe
-      navigate('/'); // Weiterleitung zur Startseite oder Login-Seite
+      await logout();
+      navigate('/'); // Weiterleitung zur Startseite
     } catch (error) {
       console.error('Logout failed:', error);
     }
@@ -36,11 +32,11 @@ const Loginbar = () => {
 
   return (
     <div className={styles.loginbar}>
-      <button onClick={toggleLoginPopup} className={styles.loginButton}>Login</button>
-      <button onClick={toggleRegisterPopup} className={styles.registerButton}>Register</button>
-      <button onClick={handleLogout} className={styles.logoutButton}>Logout</button>
+      {!isLoggedIn && <button onClick={toggleLoginPopup} className={styles.loginButton}>Login</button>}
+      {!isLoggedIn && <button onClick={toggleRegisterPopup} className={styles.registerButton}>Register</button>}
+      {isLoggedIn && <button onClick={handleLogout} className={styles.logoutButton}>Logout</button>}
       {showLoginPopup && <LoginPopup onClose={toggleLoginPopup} />}
-      {showRegisterPopup && <RegisterPopup onClose={toggleRegisterPopup} showLoginPopup={setShowLoginPopup} />}
+      {showRegisterPopup && <RegisterPopup onClose={toggleRegisterPopup} />}
     </div>
   );
 };
