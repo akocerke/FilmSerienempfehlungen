@@ -113,3 +113,21 @@
 .buttonF:hover {
   background-color: #780404;
 }
+
+
+.errorHandling {
+  text-align: center;
+  height: 100px;
+  background-color: #470107;
+  margin: 0 auto;
+  padding-top: 20px; 
+  padding-bottom: 20px; 
+  color: white;
+}
+
+.errorHandling p{
+  color: turquoise;
+}
+
+
+

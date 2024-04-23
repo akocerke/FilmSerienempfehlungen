@@ -1,15 +1,14 @@
 // apiUser.js
-import axios from 'axios';
+import axios from "axios";
 
 const apiUser = axios.create({
   baseURL: "http://localhost:3030/filmrausch",
 });
 
-
 // Funktion zum Einloggen
 export const login = async (credentials) => {
   try {
-    const response = await apiUser.post('/auth/login', credentials); // POST-Anfrage an den Login-Endpunkt
+    const response = await apiUser.post("/auth/login", credentials); // POST-Anfrage an den Login-Endpunkt
     const { token } = response.data; // Extrahiere nur den Token aus der Antwort
 
     if (!token) {
@@ -17,11 +16,11 @@ export const login = async (credentials) => {
     }
 
     // Speichere den Token im localStorage
-    localStorage.setItem('token', token);
+    localStorage.setItem("token", token);
 
     return token; // Gebe den Token zurück
   } catch (error) {
-    console.error('Login Fehler:', error);
+    console.error("Login Fehler:", error);
     throw error; // Fehler weiterleiten oder behandeln
   }
 };
@@ -29,30 +28,34 @@ export const login = async (credentials) => {
 // Funktion zur Registrierung
 export const register = async (userData) => {
   try {
-    const response = await apiUser.post('/auth/register', userData); // POST-Anfrage an den Register-Endpunkt
+    const response = await apiUser.post("/auth/register", userData); // POST-Anfrage an den Register-Endpunkt
     return response.data; // Antwort des Backends zurückgeben
   } catch (error) {
     throw error; // Fehler weiterleiten oder behandeln
   }
 };
 
- // Funktion zum Ausloggen
+// Funktion zum Ausloggen
 export const logout = async () => {
   try {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (!token) {
       throw new Error("Logout fehlgeschlagen: Kein Token gefunden");
     }
 
-    const response = await apiUser.post('/auth/logout', {}, {
-      headers: {
-        Authorization: `Bearer ${token}`
+    const response = await apiUser.post(
+      "/auth/logout",
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
-    });
-    localStorage.removeItem('token'); // Entfernt den Token aus dem lokalen Speicher
+    );
+    localStorage.removeItem("token"); // Entfernt den Token aus dem lokalen Speicher
     return response.data; // Antwort des Backends zurückgeben
   } catch (error) {
-    console.error('Logout Fehler:', error);
+    console.error("Logout Fehler:", error);
     throw error; // Fehler weiterleiten oder behandeln
   }
 };
@@ -68,15 +71,41 @@ export const addFavorite = async ({ userId, movieId, seriesId }) => {
   }
 };
 
+
 // Funktion um alle Favoriten eines Benutzers anhand der Benutzer-ID zurückzugeben
 export const getFavoritesByUserId = async (userId) => {
   try {
-    const response = await apiUser.get(`/favorites/byUserId/${userId}`); 
+    const response = await apiUser.get(`/favorites/byUserId/${userId}`);
     return response.data; // Antwort des Backends zurückgeben
   } catch (error) {
     throw error; // Fehler weiterleiten oder behandeln
   }
 };
+
+// Funktion um Favoriten zu löschen anhand der UserId => movie_id oder series_id
+export const deleteFavoritesByUserId = async (userId, movieId, seriesId) => {
+  try {
+    // entweder movieId oder seriesId aber nicht beide.
+    const data = {
+      userId
+    };
+    if (movieId) {
+      data.movieId = movieId;
+    } else if (seriesId) {
+      data.seriesId = seriesId;
+    }
+
+    const response = await apiUser.delete('/favorites/delete', {
+      data: data
+    });
+    return response.data; // Antwort des Backends zurückgeben
+  } catch (error) {
+    throw error; // Fehler weiterleiten oder behandeln
+  }
+};
+
+
+
 
 
 
