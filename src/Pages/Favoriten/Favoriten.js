@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getFavoritesByUserId } from "../../apiUser";
+import { getFavoritesByUserId, deleteFavoritesByUserId } from "../../apiUser";
 import { fetchMovieDetails, fetchSeriesDetails } from "../../apiService";
 import Content from "../../components/Content/Content";
 import styles from "./Favoriten.module.css";
@@ -10,10 +10,10 @@ const Favoriten = () => {
   const [favorites, setFavorites] = useState({ movies: [], series: [] });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { userId: urlUserId } = useParams(); // Extrahiert userId aus der URL
+  const { userId: urlUserId } = useParams(); 
 
   useEffect(() => {
-    setLoading(true);  // Setzen des Ladezustands bei jedem Aufruf des useEffect
+    setLoading(true);
     const token = localStorage.getItem("token");
     if (!token) {
       setError({ message: "Kein Token gefunden. Bitte melden Sie sich an." });
@@ -23,7 +23,7 @@ const Favoriten = () => {
 
     try {
       const decoded = jwtDecode(token);
-      const tokenUserId = decoded.id;  // Nutze 'id' aus dem Token
+      const tokenUserId = decoded.id;
 
       if (!tokenUserId) {
         setError(new Error("Token enthält keine Benutzer-ID."));
@@ -59,12 +59,28 @@ const Favoriten = () => {
       setError(error);
       setLoading(false);
     }
-  }, [urlUserId]);  // useEffect beobachtet Änderungen an urlUserId
+  }, [urlUserId]);
 
-  if (loading) return <div className={styles.loader}>
-    <div className={styles.loaderWheel}></div>
-    <div className={styles.loaderText}></div>
-  </div>;
+  const handleDelete = async (type, id) => {
+    try {
+      const movieId = type === "Film" ? id : null;
+      const seriesId = type === "Serie" ? id : null;
+
+      await deleteFavoritesByUserId(urlUserId, movieId, seriesId);
+
+      setFavorites(prevFavorites => ({
+        movies: type === "Film" ? prevFavorites.movies.filter(movie => movie.id !== id) : prevFavorites.movies,
+        series: type === "Serie" ? prevFavorites.series.filter(series => series.id !== id) : prevFavorites.series
+      }));
+      
+      console.log(`${type} mit der ID ${id} wurde erfolgreich gelöscht.`);
+    } catch (error) {
+      console.error(`Fehler beim Löschen des Favoriten:`, error);
+      setError({ message: `Fehler beim Löschen des ${type}: ${error.message}` });
+    }
+  };
+
+  if (loading) return <div className={styles.loader}><div className={styles.loaderWheel}></div><div className={styles.loaderText}></div></div>;
   if (error) return <div className={styles.errorHandling}><h3>Error:</h3> <p>{error.message}</p></div>;
 
   return (
@@ -75,35 +91,29 @@ const Favoriten = () => {
         <div className={styles.container1}>
           <h2 className={styles.filmeH2}>Filme</h2>
           <div className={styles.gridContainer}>
-            <div className={styles.movies}>
-              {favorites.movies.map((movie) => (
-                <div key={movie.id} className={styles.gridItem}>
-                  <div className={styles.gridItemContent}>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`}
-                      alt={movie.title}
-                    />
-                    <h3>{movie.title}</h3>
-                  </div>
+            {favorites.movies.map((movie) => (
+              <div key={movie.id} className={styles.gridItem}>
+                <div className={styles.gridItemContent}>
+                  <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`} alt={movie.title} />
+                  <h3>{movie.title}</h3>
+                  <button className={styles.buttonF} onClick={() => handleDelete("Film", movie.id)}>Löschen</button>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
+          <div className={styles.container1}>
           <h2 className={styles.serieH2}>Serien</h2>
           <div className={styles.gridContainer}>
-            <div className={styles.series}>
-              {favorites.series.map((series) => (
-                <div key={series.id} className={styles.gridItem}>
-                  <div className={styles.gridItemContent}>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w220_and_h330_face${series.poster_path}`}
-                      alt={series.name}
-                    />
-                    <h3>{series.name}</h3>
-                  </div>
+            {favorites.series.map((series) => (
+              <div key={series.id} className={styles.gridItem}>
+                <div className={styles.gridItemContent}>
+                  <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${series.poster_path}`} alt={series.name} />
+                  <h3>{series.name}</h3>
+                  <button className={styles.buttonF} onClick={() => handleDelete("Serie", series.id)}>Löschen</button>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
           </div>
         </div>
       </div>
