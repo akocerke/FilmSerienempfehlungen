@@ -114,7 +114,7 @@ const Filmseite = () => {
           <h3 className={styles.status}>{movie.status}</h3>
           <button onClick={handleAddFavorite} className={styles.favoriteButton}>
             {isLoading ? (
-              <div>Laden...</div>
+              <div>Bitte Einloggen oder Registrieren um Favoriten hinzuzufügen</div>
             ) : (
               isFavorite ? (
                 <FontAwesomeIcon icon={faStarSolid} /> 
