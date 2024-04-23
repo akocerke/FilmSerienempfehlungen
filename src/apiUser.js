@@ -62,15 +62,6 @@ export const logout = async () => {
 
 
 
-// Funktion zum Hinzufügen von Favoriten
-export const addFavorite = async ({ userId, movieId, seriesId }) => {
-  try {
-    const response = await apiUser.post('/favorites/add', { userId, movieId, seriesId }); // POST-Anfrage an den Favoriten-Hinzufügen-Endpunkt
-    return response.data; // Antwort des Backends zurückgeben
-  } catch (error) {
-    throw error; // Fehler weiterleiten oder behandeln
-  }
-};
 
 // Funktion um alle Favoriten eines Benutzers anhand der Benutzer-ID zurückzugeben
 export const getFavoritesByUserId = async (userId) => {
@@ -94,7 +85,6 @@ export const deleteFavoritesByUserId = async (userId, movieId, seriesId) => {
     } else if (seriesId) {
       data.seriesId = seriesId;
     }
-
     const response = await apiUser.delete('/favorites/delete', {
       data: data
     });
@@ -103,31 +93,5 @@ export const deleteFavoritesByUserId = async (userId, movieId, seriesId) => {
     throw error; // Fehler weiterleiten oder behandeln
   }
 };
-
-export const checkIfMovieIsFavorite = async (userId, movieId) => {
-  try {
-    const response = await apiUser.get(`/favorites/byUserId/${userId}`);
-    return response.data;
-  } catch (error) {
-    console.error('Fehler beim Überprüfen der Favoriten:', error);
-    return false;
-  }
-};
-
-// Funktion zum Entfernen von Favoriten
-export const removeFavorite = async ({ userId, movieId }) => {
-  try {
-    const response = await apiUser.delete('/favorites/delete', {
-      data: { userId, movieId }
-    });
-    return response.data; // Antwort des Backends zurückgeben
-  } catch (error) {
-    throw error; // Fehler weiterleiten oder behandeln
-  }
-};
-
-
-
-
 
 export default apiUser;
