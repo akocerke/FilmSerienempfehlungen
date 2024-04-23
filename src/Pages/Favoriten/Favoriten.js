@@ -1,51 +1,50 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { getFavoritesByUserId } from "../../apiUser";
 import { fetchMovieDetails, fetchSeriesDetails } from "../../apiService";
 import Content from "../../components/Content/Content";
 import styles from "./Favoriten.module.css";
-import { deleteFavoritesByUserId } from "../../apiUser";
 import { jwtDecode } from 'jwt-decode';
 
 const Favoriten = () => {
   const [favorites, setFavorites] = useState({ movies: [], series: [] });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [userId, setUserId] = useState(null);  // Zustandsvariable für userId
+  const { userId: urlUserId } = useParams(); // Extrahiert userId aus der URL
 
   useEffect(() => {
+    setLoading(true);  // Setzen des Ladezustands bei jedem Aufruf des useEffect
     const token = localStorage.getItem("token");
     if (!token) {
-      setError({ message: "Kein Token gefunden. Benutzer anmelden." });
+      setError({ message: "Kein Token gefunden. Bitte melden Sie sich an." });
       setLoading(false);
       return;
     }
 
     try {
       const decoded = jwtDecode(token);
-      const userIdFromToken = decoded.id;  // Nutze 'id' aus dem Token
-      if (!userIdFromToken) {
-        throw new Error("Token enthält keine Benutzer-ID.");
-      }
-      setUserId(userIdFromToken);  // Setzen der userId im Zustand
-    } catch (error) {
-      setError(error);
-      setLoading(false);
-      return;
-    }
+      const tokenUserId = decoded.id;  // Nutze 'id' aus dem Token
 
-    if (userId) {  // useEffect dependency auf userId setzen
+      if (!tokenUserId) {
+        setError(new Error("Token enthält keine Benutzer-ID."));
+        setLoading(false);
+        return;
+      }
+
+      if (tokenUserId.toString() !== urlUserId) {
+        setError(new Error("Zugriff verweigert: Sie können nur Ihre eigenen Favoriten anzeigen."));
+        setLoading(false);
+        return;
+      }
+
       const fetchFavorites = async () => {
         try {
-          const { movieIds, seriesIds } = await getFavoritesByUserId(userId);
-          const moviesPromise = Promise.all(
-            movieIds.map(id => fetchMovieDetails(id))
-          );
-          const seriesPromise = Promise.all(
-            seriesIds.map(id => fetchSeriesDetails(id))
-          );
+          const { movieIds, seriesIds } = await getFavoritesByUserId(tokenUserId);
+          const moviesPromise = movieIds.map(id => fetchMovieDetails(id));
+          const seriesPromise = seriesIds.map(id => fetchSeriesDetails(id));
           const [movies, series] = await Promise.all([
-            moviesPromise,
-            seriesPromise,
+            Promise.all(moviesPromise),
+            Promise.all(seriesPromise),
           ]);
           setFavorites({ movies, series });
         } catch (error) {
@@ -54,26 +53,18 @@ const Favoriten = () => {
           setLoading(false);
         }
       };
+
       fetchFavorites();
-    }
-  }, [userId]);  // useEffect beobachtet Änderungen an userId
-
-  const handleDelete = async (type, id) => {
-    if (!userId) return;  // Sicherstellen, dass userId verfügbar ist
-
-    try {
-      console.log(`Lösche ${type} mit der ID ${id}`);
-      await deleteFavoritesByUserId(userId, type === 'Film' ? id : undefined, type === 'Serie' ? id : undefined);
-      setFavorites(prevFavorites => ({
-        movies: type === 'Film' ? prevFavorites.movies.filter(movie => movie.id !== id) : prevFavorites.movies,
-        series: type === 'Serie' ? prevFavorites.series.filter(series => series.id !== id) : prevFavorites.series,
-      }));
     } catch (error) {
-      console.error(`Fehler beim Löschen des ${type}:`, error);
+      setError(error);
+      setLoading(false);
     }
-  };
+  }, [urlUserId]);  // useEffect beobachtet Änderungen an urlUserId
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className={styles.loader}>
+    <div className={styles.loaderWheel}></div>
+    <div className={styles.loaderText}></div>
+  </div>;
   if (error) return <div className={styles.errorHandling}><h3>Error:</h3> <p>{error.message}</p></div>;
 
   return (
@@ -93,12 +84,6 @@ const Favoriten = () => {
                       alt={movie.title}
                     />
                     <h3>{movie.title}</h3>
-                    <button
-                      className={styles.buttonF}
-                      onClick={() => handleDelete("Film", movie.id)}
-                    >
-                      Löschen
-                    </button>
                   </div>
                 </div>
               ))}
@@ -115,12 +100,6 @@ const Favoriten = () => {
                       alt={series.name}
                     />
                     <h3>{series.name}</h3>
-                    <button
-                      className={styles.buttonF}
-                      onClick={() => handleDelete("Serie", series.id)}
-                    >
-                      Löschen
-                    </button>
                   </div>
                 </div>
               ))}
