@@ -135,6 +135,7 @@ const Filmseite = () => {
               </button>
               <button onClick={() => setShowTrailerPopup(true)} className={styles.trailerButton}>Trailer anzeigen</button>
           </div>
+          <p className={styles.overview}>{movie.overview ? `${movie.overview}` : "Keine Beschreibung verfügbar"}</p>
           <ActorCarousel movieId={id} />
           <div className={styles.info}>
             <p className={styles.releasedate}>Release Date: {formatDateGerman(movie.release_date)}</p>
