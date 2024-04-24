@@ -4,6 +4,9 @@ import LoginPopup from "./LoginPopup";
 import RegisterPopup from "./RegisterPopup";
 import styles from "./Loginbar.module.css";
 import { useAuth } from '../../auth/AuthContext'; // Pfad anpassen
+import {logout as apiLogout} from '../../apiUser';
+import {jwtDecode} from 'jwt-decode';
+
 
 const Loginbar = () => {
   const [showLoginPopup, setShowLoginPopup] = useState(false);
@@ -23,12 +26,28 @@ const Loginbar = () => {
 
   const handleLogout = async () => {
     try {
-      await logout();
-      navigate('/'); // Weiterleitung zur Startseite
+      const token = localStorage.getItem("token");
+      if (token) {
+        const decodedToken = jwtDecode(token);
+        console.log("AuthContext LOGOUT Benutzer-ID:", decodedToken.id);  // Stellen Sie sicher, dass 'id' der korrekte Schlüssel ist
+      }
+
+      // Zuerst den serverseitigen Logout durchführen
+      await apiLogout();
+
+      // Danach den lokalen Logout durchführen Token löschen
+      logout();
+
+      // Nach erfolgreichem Logout zur Startseite navigieren
+      navigate('/');
+
+      // Erfolgsmeldung in der Konsole ausgeben
+      console.log("Token gelöschen Logout erfolgreich." );
     } catch (error) {
       console.error('Logout failed:', error);
     }
-  };
+};
+  
 
   return (
     <div className={styles.loginbar}>
