@@ -8,6 +8,7 @@ import ActorCarousel from "./ActorCarousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
 import { faStar as faStarSolid } from "@fortawesome/free-solid-svg-icons"; 
+import TrailerPopup from "./TrailerPopup";
 
 const formatDateGerman = (dateString) => {
   const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
@@ -23,6 +24,7 @@ const Filmseite = () => {
   const [movie, setMovie] = useState(null);
   const [isFavorite, setIsFavorite] = useState(false); 
   const [isLoading, setIsLoading] = useState(true); 
+  const [showTrailerPopup, setShowTrailerPopup] = useState(false);
 
   useEffect(() => {
     const fetchMovieData = async () => {
@@ -119,18 +121,20 @@ const Filmseite = () => {
           <img className={styles.poster} src={`https://media.themoviedb.org/t/p/w220_and_h330_face/${movie.poster_path}`} alt={movie.title} />
           <h2 className={styles.tagline}>{movie.tagline}</h2>
           <h3 className={styles.status}>{movie.status}</h3>
-          <button onClick={handleAddFavorite} className={styles.favoriteButton}>
-            {isLoading ? (
-              <div>Bitte Einloggen oder Registrieren um Favoriten hinzuzufügen</div>
-            ) : (
-              isFavorite ? (
-                <FontAwesomeIcon icon={faStarSolid} /> 
-              ) : (
-                <FontAwesomeIcon icon={faStar} />
-              )
-            )}
-          </button>
-          <p className={styles.overview}>{movie.overview ? `${movie.overview}` : "Keine Beschreibung verfügbar"}</p>
+            <div className={styles.ButtonBox}>
+              <button onClick={handleAddFavorite} className={styles.favoriteButton}>
+                {isLoading ? (
+                  <div>Bitte Einloggen oder Registrieren um Favoriten hinzuzufügen</div>
+                ) : (
+                  isFavorite ? (
+                    <FontAwesomeIcon icon={faStarSolid} /> 
+                  ) : (
+                    <FontAwesomeIcon icon={faStar} />
+                  )
+                )}
+              </button>
+              <button onClick={() => setShowTrailerPopup(true)} className={styles.trailerButton}>Trailer anzeigen</button>
+          </div>
           <ActorCarousel movieId={id} />
           <div className={styles.info}>
             <p className={styles.releasedate}>Release Date: {formatDateGerman(movie.release_date)}</p>
@@ -147,6 +151,7 @@ const Filmseite = () => {
             </div>
         </div>
       </div>
+      {showTrailerPopup && <TrailerPopup movieId={id} onClose={() => setShowTrailerPopup(false)} />}
     </Content>
   );
 };

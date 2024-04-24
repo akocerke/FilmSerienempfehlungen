@@ -48,6 +48,21 @@ export const fetchMovieActors = async (movieId) => {
   }
 };
 
+export const fetchMovieTrailer = async (movieId) => {
+  try {
+    const response = await apiService.get(`movie/${movieId}/videos`, {
+      params: {
+        api_key: API_KEY,
+        language: 'de-DE',
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Fehler beim Abrufen vom Trailer", error);
+    return null;
+  }
+};
+
 export const fetchSeries = async () => {
   try {
     const response = await apiService.get("tv/popular", {
