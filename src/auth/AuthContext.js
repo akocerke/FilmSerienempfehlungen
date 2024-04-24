@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import {jwtDecode} from 'jwt-decode';
 
 const AuthContext = createContext({
+  user: null,
   isLoggedIn: false,
   login: () => {},
   logout: () => {}
@@ -14,13 +16,29 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      setUser({ token });  
+      try {
+        const decoded = jwtDecode(token);
+        setUser({
+          token,
+          ...decoded
+        }); // Gespeichert werden nun auch die dekodierten Benutzerdaten
+      } catch (error) {
+        console.error('Fehler beim Decodieren des Tokens', error);
+      }
     }
   }, []);
 
   const login = (userData) => {
     localStorage.setItem('token', userData.token);
-    setUser(userData);
+    try {
+      const decoded = jwtDecode(userData.token);
+      setUser({
+        token: userData.token,
+        ...decoded
+      });
+    } catch (error) {
+      console.error('Fehler beim Decodieren des Tokens', error);
+    }
   };
 
   const logout = () => {
@@ -29,7 +47,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn: !!user, login, logout }}>
+    <AuthContext.Provider value={{ user, isLoggedIn: !!user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

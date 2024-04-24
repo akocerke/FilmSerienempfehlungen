@@ -10,7 +10,8 @@ const Navbar2 = () => {
   const { user, isLoggedIn } = useAuth(); 
   const userId = user ? user.id : null;  
 
-  const data = [
+  
+  const baseData = [
     {
       icon: faHome,
       name: "Startseite",
@@ -31,20 +32,25 @@ const Navbar2 = () => {
       name: "Suche",
       link: "/suche",
     },
-    {
-      icon: faStar,
-      name: "Favoriten",
-      link: isLoggedIn ? `/favoriten/${userId}` : "/", 
-    },
   ];
+
+  // "Favoriten" navigation für logged-in users
+  const favoritesData = isLoggedIn ? [{
+    icon: faStar,
+    name: "Favoriten",
+    link: `/favoriten/${userId}`,
+  }] : [];
+
+  
+  const data = [...baseData, ...favoritesData];
 
   return (
     <div className={styles.navbar}>
-      {data.map((Val, index) => (
-        <Link key={index} to={Val.link} className={styles.linkTo}>
+      {data.map((item, index) => (
+        <Link key={index} to={item.link} className={styles.linkTo}>
           <button className={styles.button}>
-            <FontAwesomeIcon icon={Val.icon} className={styles.customIcon} />
-            <span className={styles.iconText}>{Val.name}</span>
+            <FontAwesomeIcon icon={item.icon} className={styles.customIcon} />
+            <span className={styles.iconText}>{item.name}</span>
           </button>
         </Link>
       ))}
