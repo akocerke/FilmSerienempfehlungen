@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { fetchSeriesDetails } from "../../../src/apiService";
+import { addFavorite, deleteFavoritesByUserId, getFavoritesByUserId } from "../../apiUser";
 import styles from "./Serienseite.module.css";
 import Content from "../../components/Content/Content";
 import ActorCarouselTV from "./ActorCarouselTV";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-regular-svg-icons";
+import { faStar as faStarSolid } from "@fortawesome/free-solid-svg-icons"; 
 
 const formatDateGerman = (dateString) => {
   const options = { year: "numeric", month: "2-digit", day: "2-digit" };
@@ -17,6 +21,8 @@ const formatPercentage = (rating) => {
 const Serienseite = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
+  const [isFavorite, setIsFavorite] = useState(false); 
+  const [isLoading, setIsLoading] = useState(true); 
 
   useEffect(() => {
     const fetchSeriesData = async () => {
@@ -25,6 +31,74 @@ const Serienseite = () => {
     };
     fetchSeriesData();
   }, [id]);
+
+  useEffect(() => {
+    const checkFavoriteStatus = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+    
+      const userData = decodeToken(token);
+      if (!userData || !userData.id) return;
+    
+      const userId = userData.id;
+      console.log("UserID:", userId);
+      console.log("SeriesID:", id);
+      const userFavorites = await getFavoritesByUserId(userId);
+      const isItemFavorite = userFavorites.seriesIds.includes(parseInt(id)); // Überprüfen, ob die ID in den Favoriten enthalten ist
+      console.log("Is favorite:", isItemFavorite);
+    
+      if (isItemFavorite !== undefined) {
+        setIsFavorite(isItemFavorite);
+        setIsLoading(false);
+      }
+    };
+    
+    checkFavoriteStatus();
+  }, [id]);
+
+  const decodeToken = (token) => {
+    try {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = decodeURIComponent(atob(base64).split('').map((c) => {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+      return JSON.parse(jsonPayload);
+    } catch (error) {
+      console.error("Fehler beim Decodieren des Tokens:", error);
+      return null;
+    }
+  };
+
+  const handleAddFavorite = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        console.error("Benutzer nicht authentifiziert oder Token nicht gefunden!");
+        return;
+      }
+      
+      const userData = decodeToken(token);
+      if (!userData || !userData.id) {
+        console.error("Benutzerdaten nicht gefunden!");
+        return;
+      }
+      
+      const userId = userData.id;
+  
+      if (isFavorite) {
+        await deleteFavoritesByUserId(userId, null, id); 
+        setIsFavorite(false);
+        console.log("Is favorite state:", false);
+      } else {
+        await addFavorite({ userId: userId, seriesId: id });
+        setIsFavorite(true);
+        console.log("Is favorite state:", true);
+      }
+    } catch (error) {
+      console.error('Fehler beim Hinzufügen oder Entfernen zum/vom Favoriten:', error);
+    }
+  };
 
   if (!movie) {
     return <div className={styles.container}>Am Laden...</div>;
@@ -42,9 +116,20 @@ const Serienseite = () => {
           />
           <h2 className={styles.tagline}>{movie.tagline}</h2>
           <h3 className={styles.status}>{movie.status}</h3>
+          <button onClick={handleAddFavorite} className={styles.favoriteButton}>
+            {isLoading ? (
+              <div>Bitte Einloggen oder Registrieren um Favoriten hinzuzufügen</div>
+            ) : (
+              isFavorite ? (
+                <FontAwesomeIcon icon={faStarSolid} /> 
+              ) : (
+                <FontAwesomeIcon icon={faStar} /> 
+              )
+            )}
+          </button>
           <p className={styles.overview}>
             {movie.overview
-              ? `$${movie.overview}`
+              ? `${movie.overview}`
               : "Keine Beschreibung verfügbar"}
           </p>
           <ActorCarouselTV seriesId={id} />

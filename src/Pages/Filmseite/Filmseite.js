@@ -43,12 +43,20 @@ const Filmseite = () => {
       const userId = userData.id;
       console.log("UserID:", userId);
       console.log("MovieID:", id);
-      const userFavorites = await getFavoritesByUserId(userId);
-      const isItemFavorite = userFavorites.movieIds.includes(parseInt(id)); // Überprüfen, ob die ID in den Favoriten enthalten ist
-      console.log("Is favorite:", isItemFavorite);
+      
+      try {
+        const userFavorites = await getFavoritesByUserId(userId);
+        console.log('Favoriten des Benutzers:', userFavorites);
     
-      if (isItemFavorite !== undefined) {
-        setIsFavorite(isItemFavorite);
+        // Überprüfen, ob die Favoriten des Benutzers vorhanden sind und ob die Item-ID darin enthalten ist
+        const isItemFavorite = userFavorites && Array.isArray(userFavorites.movieIds) && userFavorites.movieIds.includes(parseInt(id));
+    
+        console.log("Is favorite:", isItemFavorite);
+    
+        setIsFavorite(!!isItemFavorite);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Fehler beim Überprüfen der Favoriten:', error);
         setIsLoading(false);
       }
     };
