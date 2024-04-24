@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { fetchSeriesDetails } from "../../../src/apiService";
-import { addFavorite, deleteFavoritesByUserId, getFavoritesByUserId } from "../../apiUser";
+import { addFavorite, deleteFavoritesByUserId, getFavoritesByUserId } from "../../apiUser"; 
 import styles from "./Serienseite.module.css";
 import Content from "../../components/Content/Content";
 import ActorCarouselTV from "./ActorCarouselTV";
@@ -115,7 +115,7 @@ const Serienseite = () => {
     <Content>
       <div className={styles.container}>
         <div className={styles.moviedetails}>
-          <h2 className={styles.title}>{movie.title}</h2>
+          <h2 className={styles.title}>{movie.name}</h2>
           <img
             className={styles.poster}
             src={`https://media.themoviedb.org/t/p/w220_and_h330_face/${movie.poster_path}`}

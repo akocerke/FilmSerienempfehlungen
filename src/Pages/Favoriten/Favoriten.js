@@ -5,11 +5,15 @@ import { fetchMovieDetails, fetchSeriesDetails } from "../../apiService";
 import Content from "../../components/Content/Content";
 import styles from "./Favoriten.module.css";
 import { jwtDecode } from 'jwt-decode';
+import MovieOverviewPopup from "./MovieOverviewPopup";
+import SeriesOverviewPopup from "./SeriesOverviewPopup";
 
 const Favoriten = () => {
   const [favorites, setFavorites] = useState({ movies: [], series: [] });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [selectedSeries, setSelectedSeries] = useState(null);
   const { userId: urlUserId } = useParams(); 
 
   useEffect(() => {
@@ -80,6 +84,14 @@ const Favoriten = () => {
     }
   };
 
+  const handleMovieClick = (movie) => {
+    setSelectedMovie(movie);
+  };
+
+  const handleSeriesClick = (series) => {
+    setSelectedSeries(series);
+  };
+
   if (loading) return <div className={styles.loader}><div className={styles.loaderWheel}></div><div className={styles.loaderText}></div></div>;
   if (error) return <div className={styles.errorHandling}><h3>Fehler</h3> <p>{error.message}</p></div>;
 
@@ -94,7 +106,7 @@ const Favoriten = () => {
             {favorites.movies.map((movie) => (
               <div key={movie.id} className={styles.gridItem}>
                 <div className={styles.gridItemContent}>
-                  <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`} alt={movie.title} />
+                  <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`} alt={movie.title}  onClick={() => handleMovieClick(movie)}/>
                   <h3>{movie.title}</h3>
                   <button className={styles.buttonF} onClick={() => handleDelete("Film", movie.id)}>Löschen</button>
                 </div>
@@ -107,7 +119,7 @@ const Favoriten = () => {
             {favorites.series.map((series) => (
               <div key={series.id} className={styles.gridItem}>
                 <div className={styles.gridItemContent}>
-                  <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${series.poster_path}`} alt={series.name} />
+                  <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${series.poster_path}`} alt={series.name}  onClick={() => handleSeriesClick(series)}/>
                   <h3>{series.name}</h3>
                   <button className={styles.buttonF} onClick={() => handleDelete("Serie", series.id)}>Löschen</button>
                 </div>
@@ -117,6 +129,8 @@ const Favoriten = () => {
           </div>
         </div>
       </div>
+      {selectedMovie && <MovieOverviewPopup movie={selectedMovie} onClose={() => setSelectedMovie(null)} />}
+      {selectedSeries && <SeriesOverviewPopup series={selectedSeries} onClose={() => setSelectedSeries(null)} />}
     </Content>
   );
 };
