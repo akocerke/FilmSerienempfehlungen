@@ -81,7 +81,7 @@ const Favoriten = () => {
   };
 
   if (loading) return <div className={styles.loader}><div className={styles.loaderWheel}></div><div className={styles.loaderText}></div></div>;
-  if (error) return <div className={styles.errorHandling}><h3>😮</h3> <p>Keine Favoriten vorhanden !</p></div>;
+  if (error) return <div className={styles.errorHandling}><h3>Fehler</h3> <p>{error.message}</p></div>;
 
   return (
     <Content>
