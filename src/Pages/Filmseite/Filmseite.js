@@ -122,9 +122,9 @@ const Filmseite = () => {
           <h2 className={styles.tagline}>{movie.tagline}</h2>
           <h3 className={styles.status}>{movie.status}</h3>
             <div className={styles.ButtonBox}>
-              <button onClick={handleAddFavorite} className={styles.favoriteButton}>
+              <button onClick={handleAddFavorite} className={styles.favoriteButton} title={isFavorite ? "Aus Favoriten entfernen" : "Zu Favoriten hinzufügen"}>
                 {isLoading ? (
-                  <div>Bitte Einloggen oder Registrieren um Favoriten hinzuzufügen</div>
+                  <div>Bitte Einloggen oder Registrieren, um Favoriten hinzuzufügen</div>
                 ) : (
                   isFavorite ? (
                     <FontAwesomeIcon icon={faStarSolid} /> 
