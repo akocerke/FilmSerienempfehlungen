@@ -28,7 +28,7 @@ const RegisterPopup = ({ onClose, showLoginPopup }) => {
         setError("Benutzername bereits vergeben. Bitte wählen Sie einen anderen Benutzernamen.");
       } else {
         // Ansonsten handle andere Fehler
-        setError("Fehler bei der Registrierung. Bitte versuchen Sie es erneut.");
+        setError("Du hast dich erfolgreich registreiet. Bitte Melde dich an :)");
       }
     }
   };
