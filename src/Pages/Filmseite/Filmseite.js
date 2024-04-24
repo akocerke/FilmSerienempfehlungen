@@ -48,7 +48,6 @@ const Filmseite = () => {
         const userFavorites = await getFavoritesByUserId(userId);
         console.log('Favoriten des Benutzers:', userFavorites);
     
-        // Überprüfen, ob die Favoriten des Benutzers vorhanden sind und ob die Item-ID darin enthalten ist
         const isItemFavorite = userFavorites && Array.isArray(userFavorites.movieIds) && userFavorites.movieIds.includes(parseInt(id));
     
         console.log("Is favorite:", isItemFavorite);

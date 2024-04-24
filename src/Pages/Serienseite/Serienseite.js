@@ -43,12 +43,19 @@ const Serienseite = () => {
       const userId = userData.id;
       console.log("UserID:", userId);
       console.log("SeriesID:", id);
+
+      try{
       const userFavorites = await getFavoritesByUserId(userId);
-      const isItemFavorite = userFavorites.seriesIds.includes(parseInt(id)); // Überprüfen, ob die ID in den Favoriten enthalten ist
+      console.log('Favoriten des Benutzers:', userFavorites);
+
+      const isItemFavorite = userFavorites && Array.isArray(userFavorites.seriesIds) && userFavorites.seriesIds.includes(parseInt(id));
+      
       console.log("Is favorite:", isItemFavorite);
     
-      if (isItemFavorite !== undefined) {
-        setIsFavorite(isItemFavorite);
+      setIsFavorite(!!isItemFavorite);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Fehler beim Überprüfen der Favoriten:', error)
         setIsLoading(false);
       }
     };

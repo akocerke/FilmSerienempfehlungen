@@ -1,124 +1,77 @@
 import React from "react";
 import Content from "../../components/Content/Content";
-import styles from "../../Pages/Impressum/Impressum.module.css";
+import styles from "./Impressum.module.css";
 
 const Impressum = () => {
   return (
     <Content>
-      <div className={styles.titel}>
-        <div>
-          <h1>Impressum</h1>
-        </div>
-        <hr className={styles.new5} />
-      </div>
       <div className={styles.impressum}>
-        <div className={styles.Angaben1}>
-          <h2>Angaben gemäß § 5 TMG</h2>
-          <p />
-          <div className={styles.angabenContent1}>
+        <div className={styles.section}>
+          <h2>Impressum</h2>
+          <hr />
+          <div className={styles.content}>
             <div>
-              <h4>Firma</h4>
-            </div>
-            <div>
+              <h3>Firma</h3>
               <p>Filmrausch GmbH</p>
             </div>
             <div>
-              <h4>Telefon</h4>
-            </div>
-            <div>
+              <h3>Telefon</h3>
               <p>+49 123 4567890</p>
             </div>
-
             <div>
-              <h4>Adresse</h4>
-            </div>
-            <div>
+              <h3>Adresse</h3>
               <p>Musterstraße 123, 12345 Musterstadt</p>
             </div>
             <div>
-              <h4>Adresse</h4>
-            </div>
-            <div>
-              <p>Musterstraße 123, 12345 Musterstadt</p>
-            </div>
-
-            <div>
-              <h4>E-mail</h4>
-            </div>
-            <div>
+              <h3>E-mail</h3>
               <p>info-filmrausch@maxmonster.de</p>
             </div>
           </div>
         </div>
-        <div className={styles.Angaben2}>
+        <div className={styles.section}>
           <h2>Handelsregister</h2>
-          <p />
-          <div className={styles.angabenContent2}>
+          <hr />
+          <div className={styles.content}>
             <div>
-              <h4>Registergericht</h4>
-            </div>
-            <div>
+              <h3>Registergericht</h3>
               <p>Amtsgericht Musterstadt</p>
             </div>
             <div>
-              <h4>Registernummer</h4>
-            </div>
-            <div>
+              <h3>Registernummer</h3>
               <p>HRB 12345</p>
             </div>
-
             <div>
-              <h4>E-Mail</h4>
-            </div>
-            <div>
+              <h3>E-Mail</h3>
               <p>info-filmrausch@maxmonster.de</p>
             </div>
-            <div>
-              <h4>Umsatzsteuer-Identifikationsnummer </h4>
-              <h4>gemäß § 27 a Umsatzsteuergesetz</h4>
-            </div>
-            <div></div>
           </div>
         </div>
-        <div className={styles.Angaben3}>
+        <div className={styles.section}>
           <h2>Urheberrecht und Marken</h2>
-          <p />
-          <div className={styles.angabenContent3}>
+          <hr />
+          <div className={styles.content}>
             <div>
-              <h4>
-                Alle auf dieser Website <h4>verwendeten Marken und Logos</h4>
-                <h4>sind Eigentum ihrer jeweiligen Inhaber.</h4>
-              </h4>
-            </div>
-            <div></div>
-
-            <div>
-              <h4>Umsatzsteuer-Identifikationsnummer</h4>
+              <h3>Alle auf dieser Website verwendeten Marken und Logos</h3>
+              <p>sind Eigentum ihrer jeweiligen Inhaber.</p>
             </div>
             <div>
-              <p> DE123456789</p>
-            </div>
-
-            <div>
-              <h4>Aufsichtsbehörde</h4>
+              <h3>Umsatzsteuer-Identifikationsnummer</h3>
+              <p>DE123456789</p>
             </div>
             <div>
+              <h3>Aufsichtsbehörde</h3>
               <p>Regulierungsbehörde Musterland</p>
             </div>
           </div>
         </div>
       </div>
-      <div className={styles.UnterImpressum}>
-        <div className={styles.UnterImpressum1}>
-          <h2>Plattform der EU-Kommission zur Online-Streitbeilegung</h2>
-          <h4>
-            Die Europäische Kommission stellt eine Plattform zur
-            Online-Streitbeilegung (OS) bereit. Die Plattform finden Sie unter:
-            <a href="https://ec.europa.eu/consumers/odr">
-              Link zur OS-Plattform
-            </a>
-          </h4>
-        </div>
+      <div className={styles.platform}>
+        <h2>Plattform der EU-Kommission zur Online-Streitbeilegung</h2>
+        <p>
+          Die Europäische Kommission stellt eine Plattform zur
+          Online-Streitbeilegung (OS) bereit. Die Plattform finden Sie unter:
+          <a href="https://ec.europa.eu/consumers/odr">Link zur OS-Plattform</a>
+        </p>
       </div>
     </Content>
   );
