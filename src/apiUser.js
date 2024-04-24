@@ -1,5 +1,6 @@
 // apiUser.js
 import axios from "axios";
+import {jwtDecode} from 'jwt-decode';
 
 const apiUser = axios.create({
   baseURL: "http://localhost:3030/filmrausch",
@@ -35,7 +36,6 @@ export const register = async (userData) => {
   }
 };
 
-// Funktion zum Ausloggen
 export const logout = async () => {
   try {
     const token = localStorage.getItem("token");
@@ -43,6 +43,11 @@ export const logout = async () => {
       throw new Error("Logout fehlgeschlagen: Kein Token gefunden");
     }
 
+    // Dekodieren des Tokens, um die Benutzer-ID zu erhalten
+    const decodedToken = jwtDecode(token);
+    console.log("APIUser Benutzer-ID:", decodedToken.id);  // Stellen Sie sicher, dass 'id' der korrekte Schlüssel ist
+
+    // Serverseitigen Logout durchführen
     const response = await apiUser.post(
       "/auth/logout",
       {},
@@ -52,11 +57,14 @@ export const logout = async () => {
         },
       }
     );
-    localStorage.removeItem("token"); // Entfernt den Token aus dem lokalen Speicher
-    return response.data; // Antwort des Backends zurückgeben
+
+    // Entfernen des Tokens aus dem lokalen Speicher
+    localStorage.removeItem("token");
+    
+    return response.data;  // Antwort des Backends zurückgeben
   } catch (error) {
     console.error("Logout Fehler:", error);
-    throw error; // Fehler weiterleiten oder behandeln
+    throw error;  // Fehler weiterleiten oder behandeln
   }
 };
 
