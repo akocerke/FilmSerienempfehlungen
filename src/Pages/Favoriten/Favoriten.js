@@ -50,6 +50,10 @@ const Favoriten = () => {
             Promise.all(moviesPromise),
             Promise.all(seriesPromise),
           ]);
+          if (movies.length === 0 && series.length === 0) {
+            setError(new Error("😮 Keine Favoriten vorhanden."));
+          }
+      
           setFavorites({ movies, series });
         } catch (error) {
           setError(error);

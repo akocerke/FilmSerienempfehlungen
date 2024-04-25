@@ -51,7 +51,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
   gap: 50px; 
-  padding: 1%;
   justify-content: space-between;
   margin-bottom: 3%;
 }
