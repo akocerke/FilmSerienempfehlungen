@@ -136,3 +136,50 @@
     box-shadow: rgba(2, 252, 210, 0.785) 0px 0 10px;
   }
   
+  @media only screen and (max-width: 768px) {
+    .row {
+      width: 90%;
+    }
+  
+    .movieapp {
+      width: 90%;
+    }
+  
+    .introH1 {
+      width: 80%;
+      min-width: 80%;
+    }
+  
+    .searchDiv {
+      margin-top: 10%;
+    }
+  
+    .formControl {
+      width: 80%;
+    }
+  
+    .gridContainer {
+      width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  
+    .gridItem img {
+      height: 180px;
+    }
+
+    .releasedate {
+      font-size: 12px;
+    }
+    .releasedateContainer p {
+      padding-top: 30px;
+      text-align: center;
+      width: auto;
+    }
+
+    .beschreibung {
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  

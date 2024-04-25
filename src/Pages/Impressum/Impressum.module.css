@@ -84,29 +84,38 @@
 
 @media only screen and (max-width: 768px) {
   .impressum {
-    flex-direction: column;
-    align-items: center;
-      justify-content: space-around;
-      margin-top: 10px;
+    width: 90%;
+    margin: 0 auto; /* Horizontale Zentrierung */
   }
-  
+
   .impline {
     width: 80%;
+    margin: 0 auto; /* Horizontale Zentrierung */
   }
 
   .section {
-    justify-content: center;
+    display: block;
+    min-block-size: 100%; 
+    margin: 0px;
+    padding: 15px;
+    width: 100%;
+  }
+
+  .content {
+    margin-top: 20px; /* Erhöhe den oberen Abstand zwischen den Inhalten */
     width: 80%;
+    display: grid;
+    grid-template-columns: 3fr;
+    padding: 10px;
+    margin: 0 auto; /* Horizontale Zentrierung */
   }
 
-  .content p {
-    padding-left: 10px;
-    justify-content: space-between;
+  .content h3 {
+    text-align: left;
+    width: 100%;
   }
-}
 
-@media only screen and (max-width: 480px) {
-  .impline {
-    width: 90%;
+  .section h2 {
+    text-align: center;
   }
 }

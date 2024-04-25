@@ -24,6 +24,7 @@ function Footer() {
             <li>
               <Link to="/Impressum">Impressum</Link>
             </li>
+            <li className={styles.placeholder} />
           </ul>
         </nav>
       </footer>

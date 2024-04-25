@@ -28,3 +28,31 @@ li {
   display: flex;
   justify-content: space-evenly;
 }
+
+@media screen and (max-width: 767px) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+    display: flex;
+  }
+  
+  nav ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  li p {
+    position: absolute;
+    bottom: 0;
+    left: 1;
+  }
+  
+  
+  nav ul li {
+    margin-bottom: 5px; /* Adjust spacing between list items if needed */
+  }
+
+  .placeholder {
+    padding-bottom: 15px;
+  }
+}

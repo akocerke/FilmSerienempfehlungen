@@ -101,6 +101,23 @@ flex-direction: column;
   box-shadow: rgba(254, 178, 2, 0.75) 0px 0 10px;
 }
 
+/* Responsive Anpassungen */
+@media screen and (max-width: 768px) {
+  .gridContainer {
+    width: 90%;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-content: center; /* Zentriert die Elemente horizontal */
+    align-items: center; /* Zentriert die Elemente vertikal */
+  }
+
+  .gridItem img {
+    height: 200px;
+  }
+
+  .gridItemContent {
+    width: 150px;
+  }
+}
 
 
 
