@@ -5,6 +5,9 @@ import styles from "./Impressum.module.css";
 const Impressum = () => {
   return (
     <Content>
+            <h1 className={styles.ueberschrift}>Impressum</h1>
+            <hr className={styles.impline} />
+
       <div className={styles.impressum}>
         <div className={styles.section}>
           <h2>Impressum</h2>
