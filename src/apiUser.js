@@ -3,7 +3,7 @@ import axios from "axios";
 import {jwtDecode} from 'jwt-decode';
 
 const apiUser = axios.create({
-  baseURL: "http://localhost:3030/filmrausch",
+  baseURL: "http://3.71.80.50:3030/filmrausch",
 });
 
 // Funktion zum Einloggen
