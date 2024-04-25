@@ -131,56 +131,66 @@ const Favoriten = () => {
         <hr className={styles.introH1} />
         <div className={styles.container1}>
           {favorites.movies.length > 0 && (
-            <div>
+            <div className={styles.u2}>
               <h2 className={styles.filmeH2}>Filme</h2>
-              <div className={styles.gridContainer}>
-                {favorites.movies.map((movie) => (
-                  <div key={movie.id} className={styles.gridItem}>
-                    <div className={styles.gridItemContent}>
-                      <img
-                        src={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`}
-                        alt={movie.title}
-                        onClick={() => handleMovieClick(movie)}
-                      />
-                      <h3>{movie.title}</h3>
-                      <button
-                        className={styles.buttonF}
-                        onClick={() => handleDelete("Film", movie.id)}
-                      >
-                        Löschen
-                      </button>
-                    </div>
+            </div>
+          )}
+          <div className={styles.gridContainer}>
+            {favorites.movies.map((movie) => (
+              <div key={movie.id} className={styles.gridItem}>
+                <div className={styles.gridItemContent}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`}
+                    alt={movie.title}
+                    onClick={() => handleMovieClick(movie)}
+                  />
+                  <div className={styles.u3}>
+                    <h3>{movie.title}</h3>
                   </div>
-                ))}
+                  <div>
+                    <button
+                      className={styles.buttonF}
+                      onClick={() => handleDelete("Film", movie.id)}
+                    >
+                      Löschen
+                    </button>
+                  </div>
+                </div>
               </div>
+            ))}
+          </div>
+        </div>
+        <div className={styles.container1}>
+          {favorites.series.length > 0 && (
+            <div className={styles.u2}>
+              <h2 className={styles.serieH2}>Serien</h2>
             </div>
           )}
 
-          {favorites.series.length > 0 && (
-            <div>
-              <h2 className={styles.serieH2}>Serien</h2>
-              <div className={styles.gridContainer}>
-                {favorites.series.map((series) => (
-                  <div key={series.id} className={styles.gridItem}>
-                    <div className={styles.gridItemContent}>
-                      <img
-                        src={`https://image.tmdb.org/t/p/w220_and_h330_face${series.poster_path}`}
-                        alt={series.name}
-                        onClick={() => handleSeriesClick(series)}
-                      />
-                      <h3>{series.name}</h3>
-                      <button
-                        className={styles.buttonF}
-                        onClick={() => handleDelete("Serie", series.id)}
-                      >
-                        Löschen
-                      </button>
-                    </div>
+          <div className={styles.gridContainer}>
+            {favorites.series.map((series) => (
+              <div key={series.id} className={styles.gridItem}>
+                <div className={styles.gridItemContent}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w220_and_h330_face${series.poster_path}`}
+                    alt={series.name}
+                    onClick={() => handleSeriesClick(series)}
+                  />
+                  <div className={styles.u3}>
+                    <h3>{series.name}</h3>
                   </div>
-                ))}
+                  <div>
+                    <button
+                      className={styles.buttonF}
+                      onClick={() => handleDelete("Serie", series.id)}
+                    >
+                      Löschen
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-          )}
+            ))}
+          </div>
         </div>
       </div>
       {selectedMovie && (

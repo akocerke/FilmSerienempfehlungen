@@ -25,7 +25,7 @@
   margin-top: 5%;
 }
 
-.serieH2{
+.serieH2 {
   color: #ffffff;
   text-shadow: #feb202 0px 0 10px;
   text-align: center;
@@ -39,26 +39,28 @@
   height: auto;
 }
 
-.container2{
+.container2 {
   width: 85%;
   margin: 0 auto;
 
 }
 
 .gridContainer {
-  margin: 0 auto; 
+  margin: 0 auto;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
-  gap: 50px; 
+  gap: 50px;
   justify-content: space-between;
   margin-bottom: 3%;
+  margin-top: 3%;
 }
 
-.movies, .series {
+.movies,
+.series {
   width: 100%;
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   align-items: stretch;
   gap: 20px;
 }
@@ -100,6 +102,12 @@
 }
 
 .u3 {
+  height: 50px;
+  margin-bottom: 30px;
+}
+
+.u2 {
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 
@@ -122,12 +130,12 @@
   height: 100px;
   background-color: #470107;
   margin: 0 auto;
-  padding-top: 20px; 
-  padding-bottom: 20px; 
+  padding-top: 20px;
+  padding-bottom: 20px;
   color: white;
 }
 
-.errorHandling p{
+.errorHandling p {
   color: turquoise;
 }
 
@@ -162,6 +170,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -171,13 +180,85 @@
   0% {
     content: 'Loading';
   }
+
   33% {
     content: 'Loading.';
   }
+
   67% {
     content: 'Loading..';
   }
+
   100% {
     content: 'Loading...';
   }
+}
+
+
+@media screen and (max-width: 768px) {
+  .gridContainer {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .gridItemContent {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gridItem {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gridItem img {
+    height: 250px;
+    height: 250px;
+    width: 150px;
+  }
+
+}
+
+@media screen and (max-width: 376px) {
+  .gridContainer {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .gridItemContent {
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gridItem {
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gridItem img {
+    height: auto;
+    width: 120px;
+  }
+
+  .u3 {
+    height: 60px;
+    margin-bottom: 30px;
+  }
+
 }
