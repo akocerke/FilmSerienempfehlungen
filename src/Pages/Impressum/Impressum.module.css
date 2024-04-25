@@ -5,18 +5,36 @@
   margin-top: 20px;
 }
 
+.ueberschrift {
+  color: #ffffff;
+  text-shadow: rgb(255, 0, 212) 0px 0 10px;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 1px;
+  margin-top: 20px;
+}
+
+.impline {
+  border: 1px solid rgba(40, 252, 2, 0);
+  box-shadow: rgb(255, 0, 212) 0px 0 10px;
+  border-radius: 5px;
+  width: 40%;
+  margin: 0 auto;
+}
+
 .section {
-  flex: 1 1 300px;
+  flex: 1 1 300px; 
   margin: 20px;
   padding: 20px;
-  background-color: #f9f9f9c7;
+  background-color: rgba(85, 85, 85, 0.3);
+  border: 0.5px solid rgba(255, 0, 200, 0.514);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .section h2 {
   font-size: 24px;
-  color: #333;
+  color: #ffffff;
 }
 
 .section hr {
@@ -29,17 +47,16 @@
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
 }
 
 .content h3 {
   font-size: 18px;
-  color: #666;
+  color: #ffffff;
 }
 
 .content p {
   font-size: 16px;
-  color: #888;
+  color: #ffffff;
 }
 
 .platform {
@@ -57,4 +74,39 @@
   font-size: 16px;
   color: #888;
   text-align: center;
+}
+
+.platform a {
+  font-size: 16px;
+  color: var(--secondary-color);
+  padding-left: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+  .impressum {
+    flex-direction: column;
+    align-items: center;
+      justify-content: space-around;
+      margin-top: 10px;
+  }
+  
+  .impline {
+    width: 80%;
+  }
+
+  .section {
+    justify-content: center;
+    width: 80%;
+  }
+
+  .content p {
+    padding-left: 10px;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .impline {
+    width: 90%;
+  }
 }
