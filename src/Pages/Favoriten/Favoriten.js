@@ -97,41 +97,49 @@ const Favoriten = () => {
 
   return (
     <Content>
-      <div className={styles.container2}>
-        <h1 className={styles.ueberschrift}>Favoriten</h1>
-        <hr className={styles.introH1} />
-        <div className={styles.container1}>
-          <h2 className={styles.filmeH2}>Filme</h2>
-          <div className={styles.gridContainer}>
-            {favorites.movies.map((movie) => (
-              <div key={movie.id} className={styles.gridItem}>
-                <div className={styles.gridItemContent}>
-                  <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`} alt={movie.title}  onClick={() => handleMovieClick(movie)}/>
-                  <h3>{movie.title}</h3>
-                  <button className={styles.buttonF} onClick={() => handleDelete("Film", movie.id)}>Löschen</button>
+    <div className={styles.container2}>
+      <h1 className={styles.ueberschrift}>Favoriten</h1>
+      <hr className={styles.introH1} />
+      <div className={styles.container1}>
+        {favorites.movies.length > 0 && (
+          <div>
+            <h2 className={styles.filmeH2}>Filme</h2>
+            <div className={styles.gridContainer}>
+              {favorites.movies.map((movie) => (
+                <div key={movie.id} className={styles.gridItem}>
+                  <div className={styles.gridItemContent}>
+                    <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`} alt={movie.title}  onClick={() => handleMovieClick(movie)}/>
+                    <h3>{movie.title}</h3>
+                    <button className={styles.buttonF} onClick={() => handleDelete("Film", movie.id)}>Löschen</button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-          <div className={styles.container1}>
-          <h2 className={styles.serieH2}>Serien</h2>
-          <div className={styles.gridContainer}>
-            {favorites.series.map((series) => (
-              <div key={series.id} className={styles.gridItem}>
-                <div className={styles.gridItemContent}>
-                  <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${series.poster_path}`} alt={series.name}  onClick={() => handleSeriesClick(series)}/>
-                  <h3>{series.name}</h3>
-                  <button className={styles.buttonF} onClick={() => handleDelete("Serie", series.id)}>Löschen</button>
+        )}
+  
+        {favorites.series.length > 0 && (
+          <div>
+            <h2 className={styles.serieH2}>Serien</h2>
+            <div className={styles.gridContainer}>
+              {favorites.series.map((series) => (
+                <div key={series.id} className={styles.gridItem}>
+                  <div className={styles.gridItemContent}>
+                    <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${series.poster_path}`} alt={series.name}  onClick={() => handleSeriesClick(series)}/>
+                    <h3>{series.name}</h3>
+                    <button className={styles.buttonF} onClick={() => handleDelete("Serie", series.id)}>Löschen</button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-          </div>
-        </div>
+        )}
       </div>
-      {selectedMovie && <MovieOverviewPopup movie={selectedMovie} onClose={() => setSelectedMovie(null)} />}
-      {selectedSeries && <SeriesOverviewPopup series={selectedSeries} onClose={() => setSelectedSeries(null)} />}
-    </Content>
+    </div>
+    {selectedMovie && <MovieOverviewPopup movie={selectedMovie} onClose={() => setSelectedMovie(null)} />}
+    {selectedSeries && <SeriesOverviewPopup series={selectedSeries} onClose={() => setSelectedSeries(null)} />}
+  </Content>
+  
   );
 };
 
