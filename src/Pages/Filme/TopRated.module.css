@@ -107,3 +107,40 @@
   transition: transform 0.3s ease;
   box-shadow: rgb(252, 144, 2) 0px 0 10px;
 }
+
+
+/* Für Bildschirme mit einer Breite von höchstens 576px */
+@media screen and (max-width: 576px) {
+  .carouselContainer {
+    width: 90%;
+    height: 90%;
+  }
+  .introH1 {
+    width: 400px;
+  }
+
+  .ueberschrift {
+    font-size: 20px;
+  }
+
+  .gridContainer {
+    height: 300px;
+    width: 300px;
+  }
+  .gridItemContent {
+    width: 50%;
+    height: 80%;
+  }
+  
+  .gridItem img {
+    height: 200px;
+  }
+  
+  .carousel {
+    width: auto;
+    height: 450px;
+  }
+  .titleContainer {
+    height: 25px;
+  }
+}

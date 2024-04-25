@@ -99,3 +99,40 @@
   transform: scale(1.1);
   z-index: 2;
 }
+
+/* Für Bildschirme mit einer Breite von höchstens 576px */
+@media screen and (max-width: 576px) {
+
+  .carruselContainer {
+    width: 90%;
+    height: 90%;
+  }
+  .introH1 {
+    width: 400px;
+  }
+
+  .ueberschrift {
+    font-size: 20px;
+  }
+
+  .gridContainer {
+    height: 300px;
+    width: 300px;
+  }
+  .gridItemContent {
+    width: 50%;
+    height: 80%;
+  }
+  
+  .gridItem img {
+    height: 200px;
+  }
+  
+  .carrusel {
+    width: auto;
+    height: 450px;
+  }
+  .titleContainer {
+    height: 25px;
+  }
+}

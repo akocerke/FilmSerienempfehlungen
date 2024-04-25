@@ -83,3 +83,38 @@
   transform: scale(1.1);
   z-index: 2;
 }
+
+/* Für Handys mit einer Breite von höchstens 480px */
+@media screen and (max-width: 480px) {
+
+  .carrusel {
+    width: 90%; /* Ändern der Breite des Karussells */
+  }
+
+  .titleContainer {
+    height: 20px;
+  }
+
+  .titleContainer h5 {
+    margin: 0px;
+  }
+
+  .carruselContainer {
+    height: auto;
+    display: flex;
+  }
+
+  .gridItemContent {
+    width: 40%; /* Anpassen der Breite der Grid-Elemente */
+    margin-right: 0; /* Entfernen des rechten Seitenabstands der Grid-Elemente */
+    display: flex;
+  }
+  .gridItem {
+    display: flex;
+    width: 100%;
+  }
+  .gridItem img {
+    width: 100px;
+    height: 150px;
+  }
+}
