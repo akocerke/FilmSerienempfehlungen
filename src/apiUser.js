@@ -78,16 +78,26 @@ export const addFavorite = async ({ userId, movieId, seriesId }) => {
   }
 };
 
-
 // Funktion um alle Favoriten eines Benutzers anhand der Benutzer-ID zurückzugeben
 export const getFavoritesByUserId = async (userId) => {
   try {
     const response = await apiUser.get(`/favorites/byUserId/${userId}`);
-    return response.data; // Antwort des Backends zurückgeben
+    if (response.data && response.data.movieIds.length === 0 && response.data.seriesIds.length === 0) {
+      throw new Error("😮 Keine Favoriten vorhanden.");
+    }
+    return response.data;
   } catch (error) {
-    throw error; // Fehler weiterleiten oder behandeln
+    if (error.response) {
+      // Benutzen der spezifischen Fehlermeldung vom Server
+      throw new Error(error.response.data.message || "Ein unbekannter Fehler ist aufgetreten.");
+    } else {
+      // Behandlung von Fällen, in denen keine Antwort vom Server erhalten wurde
+      throw new Error("Der Server ist derzeit nicht erreichbar. Bitte versuchen Sie es später erneut.");
+    }
   }
 };
+
+
 
 // Funktion um Favoriten zu löschen anhand der UserId => movie_id oder series_id
 export const deleteFavoritesByUserId = async (userId, movieId, seriesId) => {
