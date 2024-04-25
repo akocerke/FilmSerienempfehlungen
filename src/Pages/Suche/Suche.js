@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import FilmListeHeader from "../../components/FilmListeHeader";
 import SearchBox from "./SearchBox";
-import AddFavourites from "../../components/Favoriten";
 import Content from "../../components/Content/Content";
 import styles from "./Suche.module.css";
 
 const Suche = () => {
   const [movies, setMovies] = useState([]);
   const [searchValue, setSearchValue] = useState("");
-  const [favourites, setFavourites] = useState([]);
+ 
 
   const getMovieRequest = async (searchValue) => {
     const apiKey = "1ad397f85b6fe90915ecb92e15c0a3cc";
@@ -26,10 +25,7 @@ const Suche = () => {
     }
   };
 
-  const addFavouriteMovie = (movie) => {
-    const newFavouriteList = [...favourites, movie];
-    setFavourites(newFavouriteList);
-  };
+
 
   useEffect(() => {
     if (searchValue.trim() !== "") {
