@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
+  padding: 40px; 
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.2);
@@ -297,30 +297,58 @@
   z-index: 1;
 }
 
-/* Media Queries für responsive Gestaltung */
-@media screen and (max-width: 768px) {
+/* Für Handys mit einer Breite von höchstens 480px */
+@media screen and (max-width: 480px) {
   .moviedetails {
-    padding: 20px;
+    padding: 10px;
   }
-
-  .overview {
-    font-size: 18px;
-  }
-
   .poster {
-    width: 200px;
+    width: 40%;
+    height: auto;
+    border-radius: 10px;
   }
-
   .title {
-    font-size: 36px;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .tagline {
+    width: 80%;
+    font-size: 14px;
+  }
+  .overview {
+    width: 90%;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 180%;
+  }
+  .backlink {
+    padding: 8px 16px;
+    font-size: 12px;
   }
 
-  .info > p,
-  .info > .rating,
-  .info > .genres,
-  .info > .releasedate,
-  .info > .studio,
-  .info > .budget {
-    font-size: 20px;
+  .ButtonBox {
+    display: flex;
+    width: auto;
+    height: auto;
+  }
+
+  .favoriteButton {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+  
+  .trailerButton {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .info .releasedate, 
+  .info .rating, 
+  .info .budget, 
+  .info .studio, 
+  .info .genres {
+    text-align: center;
+    display: block;
+    font-size: 14px;
   }
 }
